@@ -1,5 +1,4 @@
 "use strict";
-
 const express = require('express');
 const router  = express.Router();
 
@@ -14,15 +13,11 @@ module.exports = (knex) => {
   //       res.render("root")
   //   });
   // });
-  // return router;
-
-  router.get("/", (req, res) => {
-    .then((result) => {
-      res.render("index");
-  });
 
   router.get("/:user_id", (req, res) => {
-    .then((result) => {
+    // .then((result) => {
       res.redirect("order");
-  });
-};
+  // });
+});
+return router;
+}

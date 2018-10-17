@@ -13,13 +13,19 @@ module.exports = (knex) => {
   //       res.render("root")
   //   });
   // });
-  // return router;
 
-  router.get("/", (req, res) => {
-    knex('food_items')
-      .groupBy('category')
-      .then((result) => {
-        res.json('result');
-      // res.render("index");
-  });
+  router.get('/', (req, res) => {
+    const menu = { pizza: [] };
+    knex
+      .select('*')
+      .from('food_items')
+      .where( { category: 'pizza' } )
+      .then((rows) => {
+        rows.forEach(item => {
+          menu.pizza.push(item);
+        });
+        res.render('index', { menu });
+      });
+    });
+  return router;
 };
