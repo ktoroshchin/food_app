@@ -4,28 +4,30 @@ const router  = express.Router();
 
 module.exports = (knex) => {
 
-  // router.get("/", (req, res) => {
-  //   knex
-  //     .select("*")
-  //     .from("midterm")
-  //     .then((results) => {
-  //       res.json(results);
-  //       res.render("root")
-  //   });
-  // });
+  const menu = {
+                  pizza: [],
+                  sides: [],
+                  drinks: []
+                };
 
   router.get('/', (req, res) => {
-    const menu = { pizza: [] };
     knex
       .select('*')
       .from('food_items')
       .where( { category: 'pizza' } )
+      .orWhere( { category: 'sides'})
+      .orWhere( { category: 'drinks'})
       .then((rows) => {
         rows.forEach(item => {
           menu.pizza.push(item);
+          menu.sides.push(item);
+          menu.drinks.push(item);
         });
-        res.render('index', { menu });
       });
-    });
+      res.json(menu);
+
+  // res.render('index', { menu });
+  });
+
   return router;
 };
