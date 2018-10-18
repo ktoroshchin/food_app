@@ -4,36 +4,64 @@ const router = express.Router();
 
 module.exports = (knex) => {
 
-  const menu = {
-    pizza: [],
-    sides: [],
-    drinks: []
-  };
+const menu = {
+  pizza: [],
+  sides: [],
+  drinks: []
+};
 
-  router.get('/', (req, res) => {
-    knex
-      .select('*')
-      .from('food_items')
-      .where({
-        category: 'pizza'
+router.get('/', (req, res) => {
+  knex
+    .select('*')
+    .from('food_items')
+    .where({
+      category: 'pizza'
+    })
+    .then((rows) => {
+      rows.forEach(item => {
+        menu.pizza.push(item);
       })
-      .orWhere({
-        category: 'sides'
-      })
-      .orWhere({
-        category: 'drinks'
-      })
-      .then((rows) => {
-        rows.forEach(item => {
-          menu.pizza.push(item);
-          menu.sides.push(item);
-          menu.drinks.push(item);
-        });
-      });
-    // res.json(menu);
+    })
 
-    res.render('index', { menu });
-  });
+    .select('*')
+    .from('food_items')
+    .where({
+      category: 'sides'
+    })
+    .then((rows) => {
+      rows.forEach(item => {
+        menu.sides.push(item);
+      })
+    })
 
-  return router;
+    .select('*')
+    .from('food_items')
+    .where({
+      category: 'drinks'
+    })
+    .then((rows) => {
+      rows.forEach(item => {
+        menu.drinks.push(item);
+      })
+    })
+
+    .catch((err) => {
+      console.log(err);
+      throw err
+    })
+    .finally(() => {
+      knex.destroy()
+    })
+  res.json(menu);
+
+  // res.render('inde', { menu });
+});
+});
+// res.json(menu);
+
+res.render('index', {
+menu
+});
+});
+return router;
 };
