@@ -67,9 +67,8 @@ module.exports = (knex) => {
       .finally(() => {
         knex.destroy();
       });
-    res.render('index', {
-      menu
-    });
+    res.render('index', {menu: menu});
+  //  res.json(menu);
   });
   return router;
 };
