@@ -1,38 +1,43 @@
- <%- include('partials/header.ejs') %> 
+ <%- include('partials/header.ejs') %>
 
 
   <nav class="navbar navbar-dark bg-primary" id="navbar">
-     Navbar content 
+     Navbar content
     <div id="title">Food Pick-Up App</div>
   </nav>
-  
+
   <form action="/orders/:id" method="POST">
     <div id="main-container">
         <div id="pizza-container">
             <div id="pizza-title">Pizza</div>
             <div id="pizza-display">
-    
+
                 <div class="container">
                         <div class="row">
                           <div class="col-xs-12 col-md-4">
                               <div class="card">
                                   <div class="card-body">
-                                      <h4 class="card-title">Cheese</h4>
+
+                                    <%for(var i = 0 ; i < menu.pizza.length; i++) {%>
+
+
+                                      <h4 class="card-title"><%= menu.pizza[i].item_name%></h4>
                                         <div class="card-div">
                                           <img src="media/cheese_pizza.jpg" class="card-img img-fluid">
                                         </div>
                                         <p class="card-text">$10</p>
                                     </div>
+                                  <% }%>
                                     <div class="custom-control custom-checkbox">
                                         <input name="pizza" value="cheese" type="checkbox" class="custom-control-input" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">GET THIS PIZZA</label>
                                       </div>
                                 </div>
                             </div>
-                          </div>                      
+                          </div>
                  </div>
-                 
-    
+
+
               <br>
               <br>
               <br>
@@ -45,4 +50,4 @@
       </div>
   </form>
 
-   <%- include('partials/footer.ejs') %> 
+   <%- include('partials/footer.ejs') %>
