@@ -29,6 +29,51 @@ exports.seed = function(knex, Promise) {
             category: 'pizza'
           }),
 
+          knex('food_items').insert({
+            restaurant_id: 1,
+            item_name: faker.random.word(),
+            price: faker.random.number(),
+            photo_URL: faker.image.food(),
+            category: 'sides'
+          }),
+          knex('food_items').insert({
+            restaurant_id: 1,
+            item_name: faker.random.word(),
+            price: faker.random.number(),
+            photo_URL: faker.image.food(),
+            category: 'sides'
+          }),
+          knex('food_items').insert({
+            restaurant_id: 1,
+            item_name: faker.random.word(),
+            price: faker.random.number(),
+            photo_URL: faker.image.food(),
+            category: 'sides'
+          }),
+
+          knex('food_items').insert({
+            restaurant_id: 1,
+            item_name: faker.random.word(),
+            price: faker.random.number(),
+            photo_URL: faker.image.food(),
+            category: 'drinks'
+          }),
+          knex('food_items').insert({
+            restaurant_id: 1,
+            item_name: faker.random.word(),
+            price: faker.random.number(),
+            photo_URL: faker.image.food(),
+            category: 'drinks'
+          }),
+          knex('food_items').insert({
+            restaurant_id: 1,
+            item_name: faker.random.word(),
+            price: faker.random.number(),
+            photo_URL: faker.image.food(),
+            category: 'drinks'
+          }),
+
+
         ]);
       })
   ]);

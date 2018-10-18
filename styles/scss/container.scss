@@ -20,11 +20,13 @@
       text-align: center;
       font-size: 0.3rem;
 
+      .cards {
+        width: 20rem;
+      }
       .card-div {
         display: flex;
         justify-content: center;
         height: 12rem;
-
         .card-img {
           width: 12rem;
           height: 10rem;
