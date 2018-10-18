@@ -3,11 +3,6 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (knex) => {
-<<<<<<< HEAD
-  router.get("/:user_id", (req, res) => {
-=======
-
-<<<<<<< HEAD
 
   router.get('/:user_id', (req, res) => {
     const userOrder = {
@@ -73,23 +68,4 @@ function generateRandomString() {
 //     });
 
 // })
-=======
-  // router.get("/", (req, res) => {
-  //   knex
-  //     .select("*")
-  //     .from("midterm")
-  //     .then((results) => {
-  //       res.json(results);
-  //       res.render("root")
-  //   });
-  // });
 
-  router.get('/:user_id', (req, res) => {
->>>>>>> 04bac8a44688e0ccf3d9ff3bf3b702c6972c2d28
-    // .then((result) => {
-    res.redirect('order');
-  // });
-  });
-  return router;
-};
->>>>>>> 50a654b97e50c229af321bf877949e55d8265f56
