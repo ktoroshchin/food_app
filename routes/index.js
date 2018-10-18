@@ -4,55 +4,57 @@ const router = express.Router();
 
 module.exports = (knex) => {
 
-const menu = {
-  pizza: [],
-  sides: [],
-  drinks: []
-};
+  const menu = {
+    pizza: [],
+    sides: [],
+    drinks: []
+  };
 
-router.get('/', (req, res) => {
-  knex
-    .select('*')
-    .from('food_items')
-    .where({
-      category: 'pizza'
-    })
-    .then((rows) => {
-      rows.forEach(item => {
-        menu.pizza.push(item);
+  router.get('/', (req, res) => {
+    knex
+      .select('*')
+      .from('food_items')
+      .where({
+        category: 'pizza'
       })
-    })
-
-    .select('*')
-    .from('food_items')
-    .where({
-      category: 'sides'
-    })
-    .then((rows) => {
-      rows.forEach(item => {
-        menu.sides.push(item);
+      .then((rows) => {
+        rows.forEach(item => {
+          menu.pizza.push(item);
+        })
       })
-    })
 
-    .select('*')
-    .from('food_items')
-    .where({
-      category: 'drinks'
-    })
-    .then((rows) => {
-      rows.forEach(item => {
-        menu.drinks.push(item);
+      .select('*')
+      .from('food_items')
+      .where({
+        category: 'sides'
       })
-    })
+      .then((rows) => {
+        rows.forEach(item => {
+          menu.sides.push(item);
+        })
+      })
 
-    .catch((err) => {
-      console.log(err);
-      throw err
-    })
-    .finally(() => {
-      knex.destroy()
-    })
-    res.render('index', { menu });
+      .select('*')
+      .from('food_items')
+      .where({
+        category: 'drinks'
+      })
+      .then((rows) => {
+        rows.forEach(item => {
+          menu.drinks.push(item);
+        })
+      })
+
+      .catch((err) => {
+        console.log(err);
+        throw err
+      })
+      .finally(() => {
+        knex.destroy()
+      })
+    res.render('index', {
+      menu
+    });
   });
-return router;
+  return router;
 };

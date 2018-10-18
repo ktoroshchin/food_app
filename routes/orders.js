@@ -4,10 +4,6 @@ const router  = express.Router();
 
 module.exports = (knex) => {
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f3df9831e967f9dcb811820e6088f0c05a4a7210
   router.get('/:user_id', (req, res) => {
     const userOrder = {
 
