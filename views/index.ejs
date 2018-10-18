@@ -12,57 +12,47 @@
         <div id="pizza-title">Pizza</div>
         <div class="card-deck" id="pizza-display">
 
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Chicken</h4>
-              <div class="card-div">
-                <img src="media/chicken_pizza.jpg" class="card-img">
+          <div class="container">
+            <!-- for loop here  -->
+            <% for ( let i = 0; i < menu.pizza.length; i++ ) { %>
+            <!-- if statment here for rows  -->
+            <% if( i === 0 || i % 3 === 0 ) { %>
+            <div class="row">
+            <% } %>
+
+              <div class="col-xs-12 col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Chicken</h4>
+                    <div class="card-div">
+                      <img src="media/chicken_pizza.jpg" class="card-img img-fluid">
+                    </div>
+                    <p class="card-text">$10</p>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <input name="pizza" value="chicken" type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">GET THIS PIZZA</label>
+                  </div>
+                </div>
               </div>
-              <p class="card-text">$10</p>
+
+            <% if( i === 0 || i % 3 === 0 ) { %>
             </div>
-            <div class="custom-control custom-checkbox">
-              <input name="pizza" value="chicken" type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1">GET THIS PIZZA</label>
-            </div>
+            <% } %>
+
+            <% } %>
+
           </div>
 
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Cheese</h4>
-              <div class="card-div">
-                <img src="media/cheese_pizza.jpg" class="card-img">
-              </div>
-              <p class="card-text">$10</p>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input name="pizza" value="cheese" type="checkbox" class="custom-control-input" id="customCheck2">
-              <label class="custom-control-label" for="customCheck2">GET THIS PIZZA</label>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Pepperoni</h4>
-              <div class="card-div">
-                <img src="media/pepperoni_pizza.jpg" class="card-img">
-              </div>
-              <p class="card-text">$15</p>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input name="pizza" value="pepperoni" type="checkbox" class="custom-control-input" id="customCheck3">
-              <label class="custom-control-label" for="customCheck3">GET THIS PIZZA</label>
-            </div>
-          </div>
+          <br>
+          <br>
+          <br>
         </div>
-        <br>
-        <br>
-        <br>
+        <div id="submit-div">
+          <textarea name="phone" value="" placeholder="Phone Number" id="submit-text-area"></textarea>
+          <button id="submit-button">Submit</button>
+        </div>
       </div>
-      <div id="submit-div">
-          <textarea name="phone" value="" placeholder="Phone Number" id="submit-text-area" ></textarea>
-          <button id="submit-button" >Submit</button>
-        </div>
-    </div>
   </form>
 
   <%- include('partials/footer.ejs') %>

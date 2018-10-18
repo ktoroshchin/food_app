@@ -1,0 +1,69 @@
+body {
+  background-color: #EEE;
+}
+body h1 {
+  color: #244751;
+}
+
+#main-container {
+  margin-left: 12rem;
+  margin-right: 12rem;
+  background-color: grey;
+}
+#main-container #pizza-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: lightgrey;
+}
+#main-container #pizza-container #pizza-title {
+  text-align: center;
+  font-size: 2rem;
+}
+#main-container #pizza-container #pizza-display {
+  text-align: center;
+  font-size: 0.3rem;
+}
+#main-container #pizza-container #pizza-display .cards {
+  width: 20rem;
+}
+#main-container #pizza-container #pizza-display .card-div {
+  display: flex;
+  justify-content: center;
+  height: 12rem;
+}
+#main-container #pizza-container #pizza-display .card-div .card-img {
+  width: 12rem;
+  height: 10rem;
+}
+#main-container #submit-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#main-container #submit-div #submit-text-area {
+  width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+#main-container #submit-div #submit-button {
+  width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+#main-container #submit-div ::-webkit-input-placeholder {
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  #main-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

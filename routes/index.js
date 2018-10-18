@@ -30,9 +30,9 @@ module.exports = (knex) => {
           menu.drinks.push(item);
         });
       });
-    res.json(menu);
+    // res.json(menu);
 
-    // res.render('index', { menu });
+    res.render('index', { menu });
   });
 
   return router;
