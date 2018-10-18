@@ -15,19 +15,40 @@ module.exports = (knex) => {
       .select('*')
       .from('food_items')
       .where( { category: 'pizza' } )
-      .orWhere( { category: 'sides'})
-      .orWhere( { category: 'drinks'})
       .then((rows) => {
         rows.forEach(item => {
           menu.pizza.push(item);
+        })
+      })
+
+      .select('*')
+      .from('food_items')
+      .where( { category: 'sides'})
+      .then((rows) => {
+        rows.forEach(item => {
           menu.sides.push(item);
+        })
+      })
+
+      .select('*')
+      .from('food_items')
+      .where( { category: 'drinks'})
+      .then((rows) => {
+        rows.forEach(item => {
           menu.drinks.push(item);
-        });
-      });
+        })
+      })
+
+      .catch((err) => { console.log(err); throw err})
+      .finally(() => {
+        knex.destroy()
+      })
       res.json(menu);
 
-  // res.render('index', { menu });
+  // res.render('inde', { menu });
   });
 
   return router;
 };
+
+
