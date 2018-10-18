@@ -1,0 +1,34 @@
+<%- include('partials/header.ejs') %>
+
+
+  Retaurant:
+<%=restaurants.phone_number%>
+<%=restaurants.address%>
+<div class="jumbotron">
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">user</th>
+      <th scope="col">order</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% for(let order in clientOrder) { %>
+    <tr>
+      <% let long = data[short] %>
+      <td><%= order.user %></td>
+      <td><%= client.order %></td>
+
+
+    </tr>
+      <% } %>
+  </tbody>
+</table>
+    <a href="" class="btn btn-info">change time</a>
+</div>
+
+
+<%- include('partials/footer.ejs') %>

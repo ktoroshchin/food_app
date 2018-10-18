@@ -10,6 +10,11 @@ module.exports = (knex) => {
     drinks: []
   };
 
+  router.get('/admins', (req, res) => {
+    res.render('admins')
+
+  })
+
   router.get('/', (req, res) => {
     knex('food_items')
       .select('*')
@@ -41,6 +46,7 @@ module.exports = (knex) => {
 
 
 
+    //  res.json(menu);
   });
   return router;
 };
