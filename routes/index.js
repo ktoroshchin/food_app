@@ -52,16 +52,7 @@ router.get('/', (req, res) => {
     .finally(() => {
       knex.destroy()
     })
-  res.json(menu);
-
-  // res.render('inde', { menu });
-});
-});
-// res.json(menu);
-
-res.render('index', {
-menu
-});
-});
+    res.render('index', { menu });
+  });
 return router;
 };
