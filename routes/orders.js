@@ -93,8 +93,6 @@ module.exports = (knex) => {
                 knex.destroy();
               });
           });
-
-          return router;
         };
 
   router.get('/:user_id', (req, res) => {
@@ -159,15 +157,9 @@ module.exports = (knex) => {
       .finally(() => {
         knex.destroy()
       });
-
-    // TWILIO
-    // send SMS to user updating "order received"
-    // send SMS to admin/restaurant "order"
-
   })
-
   return router;
-}
+};
 
 
 function generateRandomString() {
