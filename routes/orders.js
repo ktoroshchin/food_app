@@ -6,69 +6,46 @@ module.exports = (knex) => {
 
 
   router.post('/', (req, res) => {
-        const userURL = generateRandomString();
+      const userURL = generateRandomString();
 
-        const userInfo = [{
-          phone_number: req.body.phone, // placeholder name
-          shortURL: userURL
-        }];
+      const userInfo = [{
+        phone_number: req.body.phone,
+        shortURL: userURL
+      }];
 
-        const userOrder = [];
-        for (var i = 0; i < req.params.food_id.length; i++) {
-          userOrder.push({
-            food_id: req.params.food_id[i], //placeholder
-            user_id: user_id,
-            quantity: 1 //req.params.quantity[i] //placeholder
-          });
-        }
+      let foodID = Object.keys(req.body);
+      foodID = foodID.slice(0,foodID.length-1);
+      // removes phone number
 
-        knex('users')
-          .insert(userInfo)
-          .returning('id')
-          .then((id) => {
-            knex('order_detail')
+      knex('users')
+        .insert(userInfo)
+        .returning('id')
+        .then((id) => {
+            const userOrder = [];
+            for (var i = 0; i < foodID.length; i++) {
+              userOrder.push(
+                  { food_id: foodID[i], // sent as string -> turn to number
+                    user_id: id,
+                    quantity: req.body[foodID[i]]
+                  })
+            }
+          knex('order_detail')
             .insert(userOrder)
               .then(() => {
                 console.log('success');
+                res.render('/:' + userURL);
               })
               .catch((err) => {
                 console.log(err);
                 throw err;
               })
               .finally(() => {
-                res.render('/:' + userURL);
-              });
-
-          })
-
-
-        knex('users')
-          .insert(userInfo)
-          .then(() => {
-            console.log('success');
-          })
-          .catch((err) => {
-            console.log(err);
-            throw err;
-          })
-          .finally(() => {});
-
-        knex('users')
-          .select('id')
-          .where({
-            shortURL: userURL
-          })
-          .then((rows) => {
-            const user_id = rows;
-            console.log('ROWS ROWS ROWS: ', rows[0]); // console log to ensure rows is proper - possibly should be rows[0]
-          })
-          .catch((err) => {
-            console.log(err);
-            throw err;
+                knex.destroy();
+              })
           });
-        // get food id & quantity with loop
+  });
 
- });
+
 
   router.get('/:shortURL', (req, res) => {
     knex('users')
@@ -94,7 +71,7 @@ module.exports = (knex) => {
 
   return router;
 
-}
+};
 
 
 function generateRandomString() {
@@ -105,5 +82,3 @@ function generateRandomString() {
   }
   return randomID;
 }
-
-
