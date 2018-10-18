@@ -14,14 +14,14 @@ function generateRandomString() {
 
 module.exports = (knex) => {
 
-  router.get('/orders', (req, res) => {
+  router.get('/', (req, res) => {
+    console.log("hello")
 
-
-    res.redirect('orders');
+    res.render('orders');
   });
 
 
-  router.post('/orders', (req, res) => {
+  router.post('/', (req, res) => {
     const userURL = generateRandomString();
 
     const userInfo = [{

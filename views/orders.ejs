@@ -7,29 +7,31 @@
 </nav>
 
 <div>
-  your order:
+  your order
 </div>
 
+user number: <%=userOrder[0].phone_number%>
+
 <div>
-  <%for(var i = 0; i < length; i++) {%>
+  <%for(var i = 0; i < userOrder.length; i++) {%>
         <div class="container-items">
 
-          <div>picture</div>
+          <div><%= userOrder[i].photo_URL %></div>
 
 
           <div>
-            <div>fooditem</div>
-            <div>cost of item</div>
+            <div><%= userOrder[i].item_name %></div>
+            <div><%= userOrder[i].price %></div>
           </div>
         </div>
 
-<<%}%>
+<%}%>
 </div>
 
 
 
 <div>
-  total cost : $$
+  total cost : <%= userOrder[0].price %>
 </div>
 
 <div class="container-pickup">
