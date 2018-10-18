@@ -68,7 +68,7 @@ module.exports = (knex) => {
           });
         // get food id & quantity with loop
 
- };
+ });
 
   router.get('/:shortURL', (req, res) => {
     knex('users')
