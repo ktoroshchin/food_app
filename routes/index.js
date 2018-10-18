@@ -20,9 +20,17 @@ module.exports = (knex) => {
       .then((rows) => {
         rows.forEach(item => {
           menu.pizza.push(item);
-        })
+        });
       })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      })
+      .finally(() => {
+        knex.destroy();
+      });
 
+    knex
       .select('*')
       .from('food_items')
       .where({
@@ -31,9 +39,17 @@ module.exports = (knex) => {
       .then((rows) => {
         rows.forEach(item => {
           menu.sides.push(item);
-        })
+        });
       })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      })
+      .finally(() => {
+        knex.destroy();
+      });
 
+    knex
       .select('*')
       .from('food_items')
       .where({
@@ -42,16 +58,15 @@ module.exports = (knex) => {
       .then((rows) => {
         rows.forEach(item => {
           menu.drinks.push(item);
-        })
+        });
       })
-
       .catch((err) => {
         console.log(err);
-        throw err
+        throw err;
       })
       .finally(() => {
-        knex.destroy()
-      })
+        knex.destroy();
+      });
     res.render('index', {
       menu
     });
