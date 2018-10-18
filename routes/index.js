@@ -1,14 +1,14 @@
-"use strict";
+'use strict';
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (knex) => {
 
   const menu = {
-                  pizza: [],
-                  sides: [],
-                  drinks: []
-                };
+    pizza: [],
+    sides: [],
+    drinks: []
+  };
 
   router.get('/', (req, res) => {
     knex
@@ -46,6 +46,13 @@ module.exports = (knex) => {
       res.json(menu);
 
   // res.render('inde', { menu });
+=======
+        });
+      });
+    res.json(menu);
+
+    // res.render('index', { menu });
+>>>>>>> 50a654b97e50c229af321bf877949e55d8265f56
   });
 
   return router;

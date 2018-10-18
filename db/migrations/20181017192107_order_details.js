@@ -8,22 +8,22 @@ exports.up = function(knex, Promise) {
       table.integer('quantity');
 
       table
-        .foreign("food_id")
-        .references("id")
-        .on("food_items")
-        .onDelete("cascade");
+        .foreign('food_id')
+        .references('id')
+        .on('food_items')
+        .onDelete('cascade');
 
       table
-        .foreign("user_id")
-        .references("id")
-        .on("users")
-        .onDelete("cascade");
+        .foreign('user_id')
+        .references('id')
+        .on('users')
+        .onDelete('cascade');
     })
-  ])
+  ]);
 };
 
 exports.down = function(knex, Promise) {
   return Promise.all([
     knex.schema.dropTable('order_details'),
-  ])
+  ]);
 };
