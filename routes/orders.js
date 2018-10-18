@@ -23,7 +23,7 @@ module.exports = (knex) => {
         shortURL: req.params.shortURL
       })
       .then((userOrder) => {
-        res.json(userOrder)
+        res.json(userOrder: userOrder)
         })
         .catch((err) => {
           console.log(err);
