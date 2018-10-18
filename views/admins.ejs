@@ -1,0 +1,42 @@
+<%- include('partials/header.ejs') %>
+
+
+  Retaurant:
+<%=clientOrder.address%>
+<div class="jumbotron">
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">user</th>
+      <th scope="col">user number</th>
+      <th scope="col">order</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% for(let client in clientOrder) { %>
+
+    <tr>
+      <td><%= client[0].user_id %></td>
+      <td><%= client[0].phone_number %></td>
+
+      <td>
+      client.forEach(function(order) {
+        <%= order.item_name %> X <%= order.quantity %>  ===
+      })
+
+      </td>
+
+
+    </tr>
+      <% } %>
+  </tbody>
+</table>
+    <a href="" class="btn btn-info">change time</a>
+</div>
+
+
+<%- include('partials/footer.ejs') %>
