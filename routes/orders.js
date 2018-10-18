@@ -90,6 +90,7 @@ module.exports = (knex) => {
     })
     .finally(() => {
       knex.destroy()
+      res.render("/:" + userURL);
     });
 });
 return router;
