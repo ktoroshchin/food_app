@@ -4,7 +4,6 @@ const router  = express.Router();
 
 module.exports = (knex) => {
 
-<<<<<<< HEAD
 
   router.get('/:user_id', (req, res) => {
     const userOrder = {
@@ -70,22 +69,3 @@ function generateRandomString() {
 //     });
 
 // })
-=======
-  // router.get("/", (req, res) => {
-  //   knex
-  //     .select("*")
-  //     .from("midterm")
-  //     .then((results) => {
-  //       res.json(results);
-  //       res.render("root")
-  //   });
-  // });
-
-  router.get('/:user_id', (req, res) => {
-    // .then((result) => {
-    res.redirect('order');
-  // });
-  });
-  return router;
-};
->>>>>>> 50a654b97e50c229af321bf877949e55d8265f56
