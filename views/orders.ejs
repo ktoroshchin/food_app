@@ -1,1 +1,48 @@
-order.ejs
+<%- include('partials/header.ejs') %>
+
+
+<nav class="navbar navbar-dark bg-primary" id="navbar">
+  Navbar content
+  <div id="title">Food Pick-Up App</div>
+</nav>
+
+<div>
+  your order
+</div>
+
+user number: <%=userOrder[0].phone_number%>
+
+<div>
+  <%for(var i = 0; i < userOrder.length; i++) {%>
+        <div class="container-items">
+
+          <div><%= userOrder[i].photo_URL %></div>
+
+
+          <div>
+            <div><%= userOrder[i].item_name %></div>
+            <div><%= userOrder[i].price %></div>
+          </div>
+        </div>
+
+<%}%>
+</div>
+
+
+
+<div>
+  total cost : <%= userOrder[0].price %>
+</div>
+
+<div class="container-pickup">
+  <div>
+    time til pick up
+  </div>
+  <div>
+    where to pick up
+  </div>
+
+</div>
+
+<%- include('partials/footer.ejs') %>
+

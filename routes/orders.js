@@ -2,7 +2,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 function generateRandomString() {
   const possible = '1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
   let randomID = '';
@@ -13,14 +12,28 @@ function generateRandomString() {
 }
 
 module.exports = (knex) => {
+  router.get('/:shortURL', (req, res) => {
+    knex
+      .select('*')
+      .from('users')
+      .innerJoin('order_details','users.id','order_details.user_id')
+      .innerJoin('food_items', 'order_details.food_id', 'food_items.id')
+      .where({
+        shortURL: req.params.shortURL
+      })
+      .then((userOrder) => {
+        res.render('orders', { userOrder })
+        })
+        .catch((err) => {
+          console.log(err);
+          throw err;
+        })
+        .finally(() => {
+          knex. destroy();
+        });
+      });
 
-  router.get('/orders', (req, res) => {
-
-
-    res.redirect('orders');
-  });
-
-  router.post('/orders', (req, res) => {
+  router.post('/', (req, res) => {
     const userURL = generateRandomString();
 
     const userInfo = [{
@@ -28,7 +41,7 @@ module.exports = (knex) => {
       shortURL: userURL
     }];
     console.log(req.params.body);
-    
+
     knex('users')
       .insert(userInfo)
       .then(() => {
@@ -66,28 +79,19 @@ module.exports = (knex) => {
       });
     }
 
-    knex('order_details')
-      .insert(userOrder)
-      .then(() => {
-        console.log('sucess');
-      })
-      .catch((err) => {
-        console.log(err);
-        throw err
-      })
-      .finally(() => {
-        knex.destroy()
-      });
-
-    // TWILIO
-    // send SMS to user updating "order received"
-    // send SMS to admin/restaurant "order"
-
-  })
-
-  return router;
+  knex('order_details')
+    .insert(userOrder)
+    .then(() => {
+      console.log('sucess')
+    })
+    .catch((err) => {
+      console.log(err);
+      throw err
+    })
+    .finally(() => {
+      knex.destroy()
+      res.render("/:" + userURL);
+    });
+});
+return router;
 }
-
-
-
-

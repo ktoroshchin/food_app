@@ -23,7 +23,7 @@ module.exports = (knex) => {
           } else if (item.category === 'drinks') {
             menu.drinks.push(item);
           }
-          
+
         });
       })
       .catch((err) => {
@@ -41,7 +41,6 @@ module.exports = (knex) => {
 
 
 
-    //  res.json(menu);
   });
   return router;
 };

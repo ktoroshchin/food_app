@@ -36,9 +36,9 @@ app.use('/styles', sass({
 app.use(express.static('public'));
 
 // Mount all resource routes
-app.use('/', indexRoutes(knex));
-app.use('/order_details', orderRoutes(knex));
 
+app.use("/", indexRoutes(knex));
+app.use("/orders", orderRoutes(knex));
 
 app.listen(PORT, () => {
   console.log('Example app listening on port ' + PORT);

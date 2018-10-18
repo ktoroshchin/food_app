@@ -65,5 +65,17 @@ body h1 {
     margin-right: auto;
   }
 }
+#cost {
+  width: 100%;
+  height: 5em;
+}
+
+#pickUp {
+  display: flex;
+  justify-content: space-between;
+}
+#pickUp .pickUpInfo {
+  margin: auto;
+}
 
 /*# sourceMappingURL=main.css.map */
