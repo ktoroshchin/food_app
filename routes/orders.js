@@ -16,7 +16,7 @@ module.exports = (knex) => {
     const userURL = generateRandomString();
 
     const userInfo = [{
-      phone_number: req.params.phone_number,
+      phone_number: req.params.phone_number, // placeholder name
       shortURL: userURL
     }];
 
@@ -40,7 +40,7 @@ module.exports = (knex) => {
         shortURL: userURL
       })
       .then((rows) => {
-        const user_id = rows
+        const user_id = rows // console log to ensure rows is proper - possibly should be rows[0]
       })
 
     // get food id & quantity with loop
@@ -48,9 +48,9 @@ module.exports = (knex) => {
     const userOrder = [];
     for (var i = 0; i < req.params.food_id.length; i++) {
       userOrder.push({
-        food_id: req.params.food_id[i],
+        food_id: req.params.food_id[i], //placeholder
         user_id: user_id,
-        quantity: req.params.quantity[i]
+        quantity: 1 //req.params.quantity[i] //placeholder
       });
     }
 
