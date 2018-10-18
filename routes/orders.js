@@ -11,7 +11,6 @@ function generateRandomString() {
   return randomID;
 }
 
-
 module.exports = (knex) => {
   router.get('/:shortURL', (req, res) => {
     knex
@@ -23,54 +22,62 @@ module.exports = (knex) => {
         shortURL: req.params.shortURL
       })
       .then((userOrder) => {
-        res.json(userOrder: userOrder)
+        res.render('orders', { userOrder })
         })
         .catch((err) => {
           console.log(err);
           throw err;
         })
         .finally(() => {
-          // knex. destroy();
+          knex. destroy();
         });
       });
 
-router.post('/', (req, res) => {
-  const userURL = generateRandomString();
+  router.post('/', (req, res) => {
+    const userURL = generateRandomString();
 
-  const userInfo = [{
-    phone_number: req.params.phone_number,
-    shortURL: userURL
-  }];
-
-  knex('users')
-    .insert(userInfo)
-    .then(() => {
-      console.log('sucess')
-    })
-    .catch((err) => {
-      console.log(err);
-      throw err
-    })
-    .finally(() => {
-      knex.destroy()
-    });
-
-  knex
-    .select('id')
-    .from('users')
-    .where({
+    const userInfo = [{
+      phone_number: req.params.body.phone_number, // placeholder name
       shortURL: userURL
-    })
-    .then((rows) => {
-      const user_id = rows
-    })
+    }];
+    console.log(req.params.body);
 
-  const userOrder = [{
-    food_id: 4,
-    user_id: user_id,
-    quantity: req.params.quantity
-  }];
+    knex('users')
+      .insert(userInfo)
+      .then(() => {
+        console.log('sucess');
+      })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      })
+      .finally(() => {
+        knex.destroy();
+      });
 
+    knex('users')
+      .select('id')
+      .where({
+        shortURL: userURL
+      })
+      .then((rows) => {
+        const user_id = rows;
+        console.log(rows); // console log to ensure rows is proper - possibly should be rows[0]
+      })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      })
+    // get food id & quantity with loop
+
+    const userOrder = [];
+    for (var i = 0; i < req.params.food_id.length; i++) {
+      userOrder.push({
+        food_id: req.params.food_id[i], //placeholder
+        user_id: user_id,
+        quantity: 1 //req.params.quantity[i] //placeholder
+      });
+    }
 
   knex('order_details')
     .insert(userOrder)
