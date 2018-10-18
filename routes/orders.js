@@ -20,6 +20,7 @@ module.exports = (knex) => {
     res.redirect('orders');
   });
 
+
   router.post('/orders', (req, res) => {
     const userURL = generateRandomString();
 
@@ -28,7 +29,7 @@ module.exports = (knex) => {
       shortURL: userURL
     }];
     console.log(req.params.body);
-    
+
     knex('users')
       .insert(userInfo)
       .then(() => {
