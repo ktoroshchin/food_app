@@ -28,44 +28,54 @@ function generateRandomString() {
 
 
 
-// router.post('/', (req, res) => {
-//   const userURL = generateRandomString();
+router.post('/', (req, res) => {
+  const userURL = generateRandomString();
 
-//   const userInfo = [{
-//     phone_number : req.params.phone_number,
-//     shortURL : userURL
-//   }];
+  const userInfo = [{
+    phone_number : req.params.phone_number,
+    shortURL : userURL
+  }];
 
-//   knex('users')
-//     .insert(userInfo)
-//     .then(() => { console.log('sucess')})
-//     .catch((err) => { console.log(err); throw err})
-//     .finally(() => {
-//       knex.destroy()
-//     });
+  knex('users')
+    .insert(userInfo)
+    .then(() => { console.log('sucess')})
+    .catch((err) => { console.log(err); throw err})
+    .finally(() => {
+      knex.destroy()
+    });
 
-//     knex
-//       .select('id')
-//       .from('users')
-//       .where({shortURL: userURL})
-//       .then((rows) => {
-//         const user_id = rows
-//       })
+  knex
+    .select('id')
+    .from('users')
+    .where({shortURL: userURL})
+    .then((rows) => {
+      const user_id = rows
+    })
 
-//   const userOrder = [{
-//     food_id: 4,
-//     user_id : user_id,
-//     quantity: req.params.quantity
-//   }];
+// get food id & quantity with loop
+//
+const userOrder = [];
+for(var i=0; i<req.params.food_id.length; i++) {
+  userOrder.push({
+    food_id: req.params.food_id[i],
+    user_id : user_id,
+    quantity: req.params.quantity[i]
+  });
+
+}
 
 
-//   knex('order_details')
-//     .insert(userOrder)
-//     .then(() => { console.log('sucess')})
-//     .catch((err) => { console.log(err); throw err})
-//     .finally(() => {
-//       knex.destroy()
-//     });
+  knex('order_details')
+    .insert(userOrder)
+    .then(() => { console.log('sucess')})
+    .catch((err) => { console.log(err); throw err})
+    .finally(() => {
+      knex.destroy()
+    });
 
-// })
+    // TWILIO
+    // send SMS to user updating "order received"
+    // send SMS to admin/restaurant "order"
+
+})
 

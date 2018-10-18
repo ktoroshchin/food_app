@@ -22,7 +22,15 @@ router.get('/', (req, res) => {
         menu.pizza.push(item);
       })
     })
+    .catch((err) => {
+      console.log(err);
+      throw err
+    })
+    .finally(() => {
+      knex.destroy()
+    })
 
+  knex
     .select('*')
     .from('food_items')
     .where({
@@ -33,7 +41,15 @@ router.get('/', (req, res) => {
         menu.sides.push(item);
       })
     })
+    .catch((err) => {
+      console.log(err);
+      throw err
+    })
+    .finally(() => {
+      knex.destroy()
+    })
 
+  knex
     .select('*')
     .from('food_items')
     .where({
@@ -44,7 +60,6 @@ router.get('/', (req, res) => {
         menu.drinks.push(item);
       })
     })
-
     .catch((err) => {
       console.log(err);
       throw err
