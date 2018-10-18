@@ -11,21 +11,21 @@ exports.seed = function(knex, Promise) {
             restaurant_id: 1,
             item_name: faker.random.word(),
             price: faker.random.number(),
-            photo_URL: faker.image.food(),
+            photo_URL: faker.random.image(),
             category: 'pizza'
           }),
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: faker.random.word(),
             price: faker.random.number(),
-            photo_URL: faker.image.food(),
+            photo_URL: faker.random.image(),
             category: 'pizza'
           }),
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: faker.random.word(),
             price: faker.random.number(),
-            photo_URL: faker.image.food(),
+            photo_URL: faker.random.image(),
             category: 'pizza'
           }),
 
@@ -33,21 +33,21 @@ exports.seed = function(knex, Promise) {
             restaurant_id: 1,
             item_name: faker.random.word(),
             price: faker.random.number(),
-            photo_URL: faker.image.food(),
+            photo_URL: faker.random.image(),
             category: 'sides'
           }),
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: faker.random.word(),
             price: faker.random.number(),
-            photo_URL: faker.image.food(),
+            photo_URL: faker.random.image(),
             category: 'sides'
           }),
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: faker.random.word(),
             price: faker.random.number(),
-            photo_URL: faker.image.food(),
+            photo_URL: faker.random.image(),
             category: 'sides'
           }),
 
@@ -55,21 +55,21 @@ exports.seed = function(knex, Promise) {
             restaurant_id: 1,
             item_name: faker.random.word(),
             price: faker.random.number(),
-            photo_URL: faker.image.food(),
+            photo_URL: faker.random.image(),
             category: 'drinks'
           }),
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: faker.random.word(),
             price: faker.random.number(),
-            photo_URL: faker.image.food(),
+            photo_URL: faker.random.image(),
             category: 'drinks'
           }),
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: faker.random.word(),
             price: faker.random.number(),
-            photo_URL: faker.image.food(),
+            photo_URL: faker.random.image(),
             category: 'drinks'
           }),
 
