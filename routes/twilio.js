@@ -1,5 +1,7 @@
-// move all server.js twilio stuff to here!
-  const client = require("twilio")(
+'use strict';
+const express = require('express');
+const router = express.Router();
+const client = require("twilio")(
     process.env.TWILIO_ACCOUNT_SID,
     process.env.TWILIO_AUTH_TOKEN
   );
