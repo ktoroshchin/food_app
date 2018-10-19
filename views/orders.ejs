@@ -11,15 +11,15 @@
 </div>
 
 <div>
-  <%for(var i = 0; i < userOrder.length; i++) {%>
+  <% for(var i = 0; i < userOrder.length; i++) { %>
         <div class="container-items">
 
-          <div><%= userOrder[i].photo_URL %></div>
+          <div> <%= userOrder[i].photo_URL %> </div>
 
 
           <div>
-            <div><%= userOrder[i].item_name %></div>
-            <div><%= userOrder[i].price %></div>
+            <div> <%= userOrder[i].item_name %> </div>
+            <div> <%= userOrder[i].price %> </div>
           </div>
         </div>
 
@@ -43,4 +43,3 @@
 </div>
 
 <%- include('partials/footer.ejs') %>
-

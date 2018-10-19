@@ -1,38 +1,44 @@
 <%- include('partials/header.ejs') %>
 
 
-  Retaurant:
-<%=clientOrder.address%>
+
 <div class="jumbotron">
+
+<% for(let restaurant in orderObj) { %>
+<h1> Restaurant:  <%=orderObj[restaurant][0].address%> </h1>
+<% } %>
 
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">user</th>
-      <th scope="col">user number</th>
-      <th scope="col">order</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col">userid</th>
+      <th scope="col">user phone number</th>
+      <th scope="col">order item</th>
+      <th scope="col">quantity</th>
     </tr>
   </thead>
   <tbody>
 
-    <% for(let client in clientOrder) { %>
+    <% for(let index in orderObj) { %>
 
     <tr>
-      <td><%= client[0].user_id %></td>
-      <td><%= client[0].phone_number %></td>
 
-      <td>
-      client.forEach(function(order) {
-        <%= order.item_name %> X <%= order.quantity %>  ===
-      })
-
-      </td>
-
+      <td> <%=orderObj[index][0].user_id%> </td>
+      <td> <%=orderObj[index][0].phone_number%> </td>
+      <% orderObj[index].forEach(function(item) { %>
+        <td> <%= item.item_name %> </td>
+        <td> <%= item.quantity %> </td>
 
     </tr>
-      <% } %>
+
+    <tr>
+        <td></td>
+        <td></td>
+      <% }) %>
+
+    </tr>
+        <% } %>
+      </td>
   </tbody>
 </table>
     <a href="" class="btn btn-info">change time</a>

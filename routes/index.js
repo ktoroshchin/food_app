@@ -37,11 +37,6 @@ module.exports = (knex) => {
           menu: menu
         });
       });
-
-
-
-
-    //  res.json(menu);
   });
   return router;
 };

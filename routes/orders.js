@@ -29,21 +29,22 @@ module.exports = (knex) => {
                     quantity: req.body[foodID[i]]
                   })
             }
-          knex('order_detail')
-            .insert(userOrder)
-              .then(() => {
-                console.log('success');
-                res.render('/:' + userURL);
-              })
-              .catch((err) => {
-                console.log(err);
-                throw err;
-              })
-              .finally(() => {
-                knex.destroy();
-              })
-          });
-  });
+        knex('order_detail')
+          .insert(userOrder)
+            .then(() => {
+              console.log('success');
+              res.render('/:' + userURL);
+            })
+            .catch((err) => {
+              console.log(err);
+              throw err;
+            })
+            .finally(() => {
+            knex.destroy();
+            })
+              res.render('/:' + userURL);
+            });
+        });
 
 
 
@@ -68,10 +69,9 @@ module.exports = (knex) => {
         knex.destroy();
       });
   });
-
   return router;
-
 };
+
 
 
 function generateRandomString() {
