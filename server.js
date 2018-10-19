@@ -36,7 +36,7 @@ app.get('/twilio', function (req, res) {
   client.messages.create({
     to: '+15144244664', // Text this number
     from: '+14509991704', // From a valid Twilio number
-    body: 'Hello world'
+    body: 'Order from +51442444664, 4 greek pizzas, 1 fry, how long will it take ? '
   }, function (err, data) {
     if (err) {
       console.log(err);
