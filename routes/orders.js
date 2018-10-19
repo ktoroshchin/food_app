@@ -41,9 +41,10 @@ module.exports = (knex) => {
             })
             .finally(() => {
               knex.destroy();
-            })
+              })
+                res.render('/:' + userURL);
+            });
         });
-  });
 
 
 
@@ -68,10 +69,9 @@ module.exports = (knex) => {
         knex.destroy();
       });
   });
-
   return router;
-
 };
+
 
 
 function generateRandomString() {
