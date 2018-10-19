@@ -14,7 +14,7 @@ module.exports = (knex) => {
     }];
 
     let foodID = Object.keys(req.body);
-    foodID = foodID.slice(0,foodID.length-1);
+    foodID = foodID.slice(0, foodID.length - 1);
     // removes phone number
     // remove all keys
     const userOrder = [];
@@ -52,6 +52,7 @@ module.exports = (knex) => {
 
 
 
+
   router.get('/:shortURL', (req, res) => {
     knex('users')
       .select('*')
@@ -76,7 +77,6 @@ module.exports = (knex) => {
   });
   return router;
 };
-
 
 
 function generateRandomString() {
