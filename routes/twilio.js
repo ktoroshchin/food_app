@@ -12,7 +12,7 @@ module.exports = (knex) => {
   //twilio example
   const userPhone = "+15144244664";
 
-  app.get("/twilio", function(req, res) {
+  router.get("/twilio", function(req, res) {
     const message = "You have a new order! from " + userPhone + ", they ordered 1 greek pizza, one fry, and 1 soda. How long will this order take to prepare?"
     client.messages.create(
       {
@@ -30,7 +30,7 @@ module.exports = (knex) => {
   });
 
 
-  app.post("/sms", function(req, res) {
+  router.post("/sms", function(req, res) {
     var twilio = require("twilio");
     var twiml = new MessagingResponse();
 
