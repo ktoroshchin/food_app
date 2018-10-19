@@ -15,29 +15,45 @@
         <div class="container">
           <div class="row">
 
-        <% for(var i = 0 ; i < menu.pizza.length; i++) {%>
-          <div class="col-xs-12 col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title"> <%= menu.pizza[i].item_name%> </h4>
-                <div class="card-div">
-                  <img src="<%= menu.pizza[i].photo_URL %>" class="card-img img-fluid">
+            <% for(var i = 0 ; i < menu.pizza.length; i++) {%>
+            <div class="col-xs-12 col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <%= menu.pizza[i].item_name%>
+                  </h4>
+                  <div class="card-div">
+                    <img src="<%= menu.pizza[i].photo_URL %>" class="card-img img-fluid">
+                  </div>
+                  <p class="card-text">$
+                    <%= menu.pizza[i].price %>
+                  </p>
                 </div>
-                <p class="card-text">$<%= menu.pizza[i].price %></p>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input name="<%= menu.pizza[i].id%>" value="1" type="checkbox" class="custom-control-input" id="customCheck<%= i %>">
-                <label class="custom-control-label" for="customCheck<%= i %>">GET THIS PIZZA</label>
-              </div>
-              </div>
-          </div>
-          <% if(i===2) { %>
-            </div>
-            <div class="row">
-          <%}%>
-        <% }%>
+                <!-- <div class="custom-control custom-checkbox">
+                  <input name="<%= menu.pizza[i].id%>" value="1" type="checkbox" class="custom-control-input" id="customCheck<%= i %>">
+                  <label class="custom-control-label" for="customCheck<%= i %>">GET THIS PIZZA</label>
+                </div> -->
 
-        </div>
+                <select name="<%= menu.pizza[i].id%>" >
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <br>
+                  <br> 
+
+              </div>
+            </div>
+            <% if(i===2) { %>
+          </div>
+          <div class="row">
+            <%}%>
+            <% }%>
+
+          </div>
 
         </div>
         <br>
