@@ -1,0 +1,94 @@
+$red: #CC0000;
+$white: #FFFFFF;
+$lightGrey: #D3D3D3;
+$darkGrey: #808080;
+
+.menu-item {
+  background-color: $lightGrey;
+
+  .row {
+    padding: 10px;
+    .picture-container{
+    div {
+      width:200px;
+      height:200px;
+      border-radius: 10px;
+    }
+  }
+
+    .item-name {
+      display: flex;
+      height: 3em;
+      align-self: flex-end;
+      justify-content: center;
+      align-content: center;
+      background-color: $red;
+      border-radius: 10px;
+
+      p {
+        align-self: center;
+        margin: 0px;
+        color: $white;
+      }
+    }
+
+    .cost {
+      display: flex;
+      height: 3em;
+      align-self: flex-end;
+      justify-content: center;
+      align-content: center;
+      background-color: $red;
+      border-radius: 10px;
+
+      p {
+        align-self: center;
+        margin: 0px;
+        color: $white;
+      }
+    }
+  }
+}
+
+.order-cost {
+  .row {
+
+
+    .total-cost {
+      background-color: #CC0000;
+      color: $white;
+      padding: 0px;
+      height: 3em;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      p {
+        color: $white;
+      }
+    }
+  }
+  .row {
+
+    .where-pickup {
+      background-color: $darkGrey;
+      height: 3em;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      p {
+        color: $white;
+      }
+    }
+    .time-until-ready {
+      background-color: $darkGrey;
+      height: 3em;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      p {
+        color: $white;
+      }
+    }
+  }
+}

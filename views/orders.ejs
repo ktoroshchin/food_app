@@ -1,45 +1,46 @@
 <%- include('partials/header.ejs') %>
 
-
+<!--
 <nav class="navbar navbar-dark bg-primary" id="navbar">
   Navbar content
   <div id="title">Food Pick-Up App</div>
-</nav>
-
-<div>
-  your order
-</div>
-
-<div id="cart-container">
-  <% for(var i = 0; i < userOrder.length; i++) { %>
-        <div class="container-items">
-
-          <div> <%= userOrder[i].photo_URL %> </div> 
-
-
-          <div>
-            <div> <%= userOrder[i].item_name %> </div>
-            <div> <%= userOrder[i].price %> </div>
-          </div>
-        </div>
-
-<%}%>
-</div>
+</nav> -->
 
 
 
-<div>
-  total cost : <%= userOrder[0].price %>
-</div>
-
-<div class="container-pickup">
-  <div>
-    time til pick up
+<div class="container menu-item">
+  <div class="row">
+    <div class="col-sm-3 picture-container">
+      <div style="background:url(https://picsum.photos/200/300)"></div>
+    </div>
+    <div class="col-sm-3 item-name offset-md-1">
+      <p>Pizza Pepperoni</p>
+    </div>
+    <div class="col-sm-3 cost offset-md-1">
+      <p>cost $$$</p>
+    </div>
   </div>
-  <div>
-    where to pick up
-  </div>
-
 </div>
+
+
+<div class="container order-cost">
+  <div class="row">
+    <div class="col-12 total-cost">
+        <p>TOTAL COST</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 where-pickup">
+      <p>Where to Pick up</p>
+    </div>
+    <div class="col-6 time-until-ready">
+      <p>Time until ready</p>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 <%- include('partials/footer.ejs') %>
