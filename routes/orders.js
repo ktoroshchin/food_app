@@ -16,38 +16,33 @@ module.exports = (knex) => {
     let foodID = Object.keys(req.body);
     foodID = foodID.slice(0, foodID.length - 1);
     // removes phone number
-    // remove all keys
+    // RN SOME KEYS ARE GIVEN WITH QUANTITY ZERO DUE TO EJS DEFAULT
     const userOrder = [];
 
     knex('users')
       .insert(userInfo)
       .returning('id')
       .then((id) => {
+        console.log(id[0])
           for (var i = 0; i < foodID.length; i++) {
             userOrder.push(
                 { food_id: foodID[i], // sent as string -> turn to number
-                  user_id: id,
+                  user_id: id[0],
                   quantity: req.body[foodID[i]]
                 })
           }
-        knex('order_detail')
+        knex('order_details')
           .insert(userOrder)
             .then(() => {
-              console.log('success');
-              res.redirect('/' + userURL);
+              res.redirect('/orders/' + userURL);
             })
             .catch((err) => {
-              console.log('NO SUCESS')
               console.log(err);
               throw err;
             })
             .finally(() => {
-              console.log('ya made it to finally')
-              res.send('bye')
-              knex.destroy();
               })
             });
-              res.send('nope try again')
     });
 
 
@@ -72,7 +67,7 @@ module.exports = (knex) => {
         throw err;
       })
       .finally(() => {
-        knex.destroy();
+        // knex.destroy();
       });
   });
   return router;

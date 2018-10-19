@@ -25,17 +25,15 @@ module.exports = (knex) => {
           }
 
         });
+        res.render('index', {
+          menu: menu
+        });
       })
       .catch((err) => {
         console.log(err);
         throw err;
       })
       .finally(() => {
-        knex.destroy();
-
-        res.render('index', {
-          menu: menu
-        });
       });
   });
   return router;
