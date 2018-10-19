@@ -29,21 +29,19 @@
                     <%= menu.pizza[i].price %>
                   </p>
                 </div>
-                <!-- <div class="custom-control custom-checkbox">
-                  <input name="<%= menu.pizza[i].id%>" value="1" type="checkbox" class="custom-control-input" id="customCheck<%= i %>">
-                  <label class="custom-control-label" for="customCheck<%= i %>">GET THIS PIZZA</label>
-                </div> -->
 
-                <select name="<%= menu.pizza[i].id%>" >
-                    <option value="0">0</option>
+                <select class="btn btn-secondary dropdown-toggle" name="<%= menu.pizza[i].id%>" >
+                    <option value="0"></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                   </select>
+
+
                   <br>
-                  <br> 
+                  <br>
 
               </div>
             </div>
@@ -62,7 +60,7 @@
       </div>
       <div id="submit-div">
         <textarea name="phone" value="" placeholder="Phone Number" id="submit-text-area"></textarea>
-        <button id="submit-button">Submit</button>
+    <button id="submit-button">Submit</button>
       </div>
     </div>
   </div>

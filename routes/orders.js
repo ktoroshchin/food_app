@@ -12,11 +12,19 @@ module.exports = (knex) => {
       phone_number: req.body.phone,
       shortURL: userURL
     }];
+    console.log(req.body)
+    const clientItems = {}
+    for(let item in req.body) {
+      if(req.body[item] != 0) {
+       clientItems[item] = req.body[item];
+       console.log(clientItems)
+      }
+    }
 
-    let foodID = Object.keys(req.body);
+    let foodID = Object.keys(clientItems);
     foodID = foodID.slice(0, foodID.length - 1);
     // removes phone number
-    // RN SOME KEYS ARE GIVEN WITH QUANTITY ZERO DUE TO EJS DEFAULT
+
     const userOrder = [];
 
     knex('users')
@@ -26,11 +34,12 @@ module.exports = (knex) => {
         console.log(id[0])
           for (var i = 0; i < foodID.length; i++) {
             userOrder.push(
-                { food_id: foodID[i], // sent as string -> turn to number
+                { food_id: Number(foodID[i]), // sent as string -> turn to number
                   user_id: id[0],
-                  quantity: req.body[foodID[i]]
+                  quantity: Number(clientItems[foodID[i]])
                 })
           }
+          console.log(userOrder)
         knex('order_details')
           .insert(userOrder)
             .then(() => {
@@ -61,7 +70,7 @@ module.exports = (knex) => {
         res.render('orders', {
           userOrder
         });
-      })
+      }) // NEED TO FIX FINAL COST
       .catch((err) => {
         console.log(err);
         throw err;
