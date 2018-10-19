@@ -11,18 +11,25 @@ exports.seed = function(knex, Promise) {
           knex('order_details').insert({
             food_id: 1,
             user_id: 1,
-            quantity: faker.random.number()
+            quantity: Math.round(faker.random.number()/1000)
           }),
           knex('order_details').insert({
             food_id: 2,
             user_id: 1,
-            quantity: faker.random.number()
+            quantity: Math.round(faker.random.number()/1000)
           }),
           knex('order_details').insert({
             food_id: 3,
             user_id: 1,
-            quantity: faker.random.number()
+            quantity: Math.round(faker.random.number()/1000)
+          }),
+          knex('order_details').insert({
+            food_id: 1,
+            user_id: 2,
+            quantity: Math.round(faker.random.number()/1000)
           })
+
+
         ]);
       })
   ])

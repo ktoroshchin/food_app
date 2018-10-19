@@ -7,16 +7,48 @@ module.exports = (knex) => {
 
   router.post('/', (req, res) => {
     const userURL = generateRandomString();
+    let phone = "";
 
+    if(!req.body.phone || isNaN(req.body.phone) || req.body.phone.length < 10) {
+      // no number given or letters contained
+      res.send('we need a phone number')
+    }
+
+    if(req.body.phone.length === 11) {
+      // user inputed all numbers without ticks
+      phone = "+" + req.body.phone;
+    } else if (req.body.phone.length === 10){
+      // all numbers without tick, without 1
+      phone = "+" + req.body.phone;
+    } else if (req.body.phone.length === 12){
+      // all numbers with tick, without 1
+      phone = "+1" + req.body.phone.slice(0,2) + req.body.phone.slice(4,7)+ req.body.phone.slice(8);
+    } else if (req.body.phone.length === 14){
+      // all numbers with tick, with 1
+      // it's good
+      phone = req.body.phone;
+    } else {
+      res.send('invalid number - try again')
+    }
+
+//for twilio =>"+14385551234"
     const userInfo = [{
-      phone_number: req.body.phone,
+      phone_number: phone,
       shortURL: userURL
     }];
+    console.log(req.body)
+    const clientItems = {}
+    for(let item in req.body) {
+      if(req.body[item] != 0) {
+       clientItems[item] = req.body[item];
+       console.log(clientItems)
+      }
+    }
 
-    let foodID = Object.keys(req.body);
+    let foodID = Object.keys(clientItems);
     foodID = foodID.slice(0, foodID.length - 1);
     // removes phone number
-    // RN SOME KEYS ARE GIVEN WITH QUANTITY ZERO DUE TO EJS DEFAULT
+
     const userOrder = [];
 
     knex('users')
@@ -26,11 +58,12 @@ module.exports = (knex) => {
         console.log(id[0])
           for (var i = 0; i < foodID.length; i++) {
             userOrder.push(
-                { food_id: foodID[i], // sent as string -> turn to number
+                { food_id: Number(foodID[i]), // sent as string -> turn to number
                   user_id: id[0],
-                  quantity: req.body[foodID[i]]
+                  quantity: Number(clientItems[foodID[i]])
                 })
           }
+          console.log(userOrder)
         knex('order_details')
           .insert(userOrder)
             .then(() => {
@@ -61,7 +94,7 @@ module.exports = (knex) => {
         res.render('orders', {
           userOrder
         });
-      })
+      }) // NEED TO FIX FINAL COST
       .catch((err) => {
         console.log(err);
         throw err;
