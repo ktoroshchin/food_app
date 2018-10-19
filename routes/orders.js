@@ -7,9 +7,33 @@ module.exports = (knex) => {
 
   router.post('/', (req, res) => {
     const userURL = generateRandomString();
+    let phone = "";
 
+    if(!req.body.phone || isNaN(req.body.phone) || req.body.phone.length < 10) {
+      // no number given or letters contained
+      res.send('we need a phone number')
+    }
+
+    if(req.body.phone.length === 11) {
+      // user inputed all numbers without ticks
+      phone = "+" + req.body.phone;
+    } else if (req.body.phone.length === 10){
+      // all numbers without tick, without 1
+      phone = "+" + req.body.phone;
+    } else if (req.body.phone.length === 12){
+      // all numbers with tick, without 1
+      phone = "+1" + req.body.phone.slice(0,2) + req.body.phone.slice(4,7)+ req.body.phone.slice(8);
+    } else if (req.body.phone.length === 14){
+      // all numbers with tick, with 1
+      // it's good
+      phone = req.body.phone;
+    } else {
+      res.send('invalid number - try again')
+    }
+
+//for twilio =>"+14385551234"
     const userInfo = [{
-      phone_number: req.body.phone,
+      phone_number: phone,
       shortURL: userURL
     }];
     console.log(req.body)
