@@ -16,12 +16,13 @@ module.exports = (knex) => {
     let foodID = Object.keys(req.body);
     foodID = foodID.slice(0,foodID.length-1);
     // removes phone number
+    // remove all keys
+    const userOrder = [];
 
     knex('users')
       .insert(userInfo)
       .returning('id')
       .then((id) => {
-          const userOrder = [];
           for (var i = 0; i < foodID.length; i++) {
             userOrder.push(
                 { food_id: foodID[i], // sent as string -> turn to number
@@ -33,18 +34,21 @@ module.exports = (knex) => {
           .insert(userOrder)
             .then(() => {
               console.log('success');
-              res.render('/:' + userURL);
+              res.redirect('/' + userURL);
             })
             .catch((err) => {
+              console.log('NO SUCESS')
               console.log(err);
               throw err;
             })
             .finally(() => {
+              console.log('ya made it to finally')
+              res.send('bye')
               knex.destroy();
               })
-                res.render('/:' + userURL);
             });
-        });
+              res.send('nope try again')
+    });
 
 
 
@@ -57,6 +61,7 @@ module.exports = (knex) => {
         shortURL: req.params.shortURL
       })
       .then((userOrder) => {
+        console.log(req.params.shortURL)
         res.render('orders', {
           userOrder
         });
