@@ -11,7 +11,14 @@ exports.seed = function(knex, Promise) {
           knex('users').insert({
             phone_number: faker.phone.phoneNumber(),
             shortURL: faker.random.number()
+          }),
+
+          knex('users').insert({
+            phone_number: faker.phone.phoneNumber(),
+            shortURL: faker.random.number()
           })
+
+
         ]);
       })
   ]);
