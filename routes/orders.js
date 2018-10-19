@@ -94,8 +94,7 @@ module.exports = (knex) => {
   });
 
   return router;
-
-}
+};
 
 
 function generateRandomString() {
