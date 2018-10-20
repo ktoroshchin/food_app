@@ -57,7 +57,7 @@
 
 <%- include('partials/footer.ejs') %>
 
-<!-- <script>
+<script>
   // AJAX on click of confirmation
   //      -> GET twilio, hide confirmation div
 
@@ -67,7 +67,10 @@
 
         $('#confirm').click(function () {
             $.ajax('/twilio', {
-                method: 'GET',  { shortURL: userOrder[0].shortURL }
+                method: 'GET',
+                {
+                  shortURL: userOrder[0].shortURL
+
                 })
               .done(function () {
                 $('#CONFIRMATION').css('visibility', 'hidden');
@@ -75,4 +78,4 @@
             })
         }
       }
-</script> -->
+</script>
