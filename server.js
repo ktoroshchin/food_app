@@ -56,10 +56,11 @@ app.use('/styles', sass({
 app.use(express.static('public'));
 
 // Mount all resource routes
-app.use('/', indexRoutes(knex));
-app.use('/orders', orderRoutes(knex));
-app.use('/admins', adminRoutes(knex));
-app.use('/', twilioRoutes(knex));
+
+app.use("/", indexRoutes(knex));
+app.use("/orders", orderRoutes(knex));
+app.use("/admins", adminRoutes(knex));
+app.use("/twilio", twilioRoutes(knex));
 
 app.listen(PORT, () => {
   console.log('Example app listening on port ' + PORT);
