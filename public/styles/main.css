@@ -169,4 +169,26 @@ body {
   height: 3em;
 }
 
+.jumbotron.background-style {
+  background-color: #E2D2C2;
+}
+.jumbotron.background-style .table.table-hover {
+  border-style: hidden;
+}
+.jumbotron.background-style .table.table-hover .table-head {
+  background-color: #4b0101;
+}
+.jumbotron.background-style .table.table-hover .table-head .text-head {
+  color: #ffffff;
+}
+.jumbotron.background-style .table.table-hover .table-data {
+  border-style: hidden;
+}
+.jumbotron.background-style .table.table-hover .table-data #hide-data {
+  border-style: hidden;
+}
+.jumbotron.background-style .table.table-hover .table-data #hide-data .delete-button {
+  background-color: #4b0101;
+}
+
 /*# sourceMappingURL=main.css.map */
