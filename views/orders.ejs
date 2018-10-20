@@ -7,7 +7,7 @@
 </nav> -->
 
 <% totalPrice = 0 %>
-
+<% console.log(userOrder) %>
 <% for(let i = 0; i < userOrder.length; i++) { %>
 <div class="container menu-item">
   <div class="row">
@@ -15,16 +15,16 @@
       <div style="background:url(<%= userOrder[i].photo_URL %>)"></div>
     </div>
     <div class="col-sm-3 item-name offset-md-1">
-      <p><%= userOrder[i].item_name %></p>
+      <p><%= userOrder[i].item_name %> x <%= userOrder[i].quantity %></p>
+
     </div>
     <div class="col-sm-3 cost offset-md-1">
-      <p>$<%= userOrder[i].price %></p>
+      <p>$<%= (userOrder[i].price * userOrder[i].quantity)  %></p>
     </div>
   </div>
 </div>
-<% totalPrice += userOrder[i].price %>
+<% totalPrice += (userOrder[i].price * userOrder[i].quantity) %>
 <% restaurantAddress = userOrder[i].address %>
-<%= console.log(userOrder)%>
 <% } %>
 
 <% totalPrice = (totalPrice * 1.15).toFixed(2) %>
