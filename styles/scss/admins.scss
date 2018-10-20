@@ -1,0 +1,32 @@
+$lightbrown: #E2D2C2;
+$darkbrown: #582707;
+$black: #000000;
+$dryred: #4b0101;
+$red: #DD2D4A;
+$white: #ffffff;
+$orange: #FF9505;
+
+
+.jumbotron.background-style{
+  background-color: $lightbrown;
+  .table.table-hover {
+    .table-head{
+      background-color: $dryred;
+      .text-head{
+        color: $white
+      }
+    }
+    border-style:hidden;
+    .table-data{
+      border-style:hidden;
+      #hide-data{
+        border-style:hidden;
+        .delete-button{
+          background-color: $dryred;
+        }
+      #hide-data{
+        }
+      }
+    }
+  }
+}
