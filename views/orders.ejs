@@ -1,13 +1,6 @@
 <%- include('partials/header.ejs') %>
 
-<!--
-<nav class="navbar navbar-dark bg-primary" id="navbar">
-  Navbar content
-  <div id="title">Food Pick-Up App</div>
-</nav> -->
-
 <% totalPrice = 0 %>
-<% console.log(userOrder) %>
 <% for(let i = 0; i < userOrder.length; i++) { %>
 <div class="container menu-item">
   <div class="row">
@@ -36,7 +29,8 @@
   </div>
   <div class="row">
     <div class="col-6 where-pickup">
-      <p> <%= restaurantAddress %> </p>
+      <p>Pick up address: <%= restaurantAddress %> </p>
+      <% console.log(restaurantAddress)%>
     </div>
     <div class="col-6 time-until-ready">
       <p id="time">Time until ready</p>
