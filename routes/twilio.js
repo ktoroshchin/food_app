@@ -25,7 +25,7 @@ module.exports = (knex) => {
       .select('*')
       .innerJoin('users', 'users.id', 'texts.user_id')
       .where({
-        shortURL: req.params.shortURL
+        shortURL: req.cookie('shortURL')
       })
       .then((text_info) => {
         userPhone = text_info.phone_number;
