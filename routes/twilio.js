@@ -85,3 +85,28 @@ module.exports = (knex) => {
 }
 
 
+// knex('texts')
+//       .select('*')
+//       .innerJoin('restaurants', 'restaurants.id', 'restaurant_id')
+//       .innerJoin('users', 'users.id', 'texts.user_id')
+//       .where({shortURL: req.params.shortURL})
+//       .then((text_info) => {
+//   userPhone = userPhone;
+//   message = `You have a new order from ${userPhone}\n They ordered: ${texts.restaurant_text}\n Estimate time for pickup?`;
+//   const textOrder = {
+//     user_id : users.id,
+//     restaurant_id : restaurants.id,
+//     user_order : message
+//     restaurant_text
+//     time_sent
+//   }
+//         knex('texts');
+//           .insert(textOrder)
+
+//           .catch((err) => {
+//             console.log(err);
+//             throw err;
+//           })
+//           .finally(() => {
+//           });
+//       })

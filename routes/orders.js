@@ -50,34 +50,56 @@ module.exports = (knex) => {
     // removes phone number
 
     const userOrder = [];
-    message =
-    `You have a new order from ${phone}\n
-    They ordered: ${food_Qty}\n
-    Estimate time for pickup?`;
+    const foodQty = [];
 
     knex('users')
       .insert(userInfo)
       .returning('id')
       .then((id) => {
           for (var i = 0; i < foodID.length; i++) {
+            foodID[i] = Number(foodID[i]);
+            foodQty.push(Number(clientItems[foodID[i]]));
             userOrder.push(
-                { food_id: Number(foodID[i]), // sent as string -> turn to number
+                { food_id: foodID[i], // sent as string -> turn to number
                   user_id: id[0],
-                  quantity: Number(clientItems[foodID[i]])
+                  quantity: clientItems[foodID[i]]
                 })
           }
         knex('order_details')
           .insert(userOrder)
-            .then(() => {
-              res.redirect('/orders/' + userURL);
-            })
-            .catch((err) => {
-              console.log(err);
-              throw err;
-            })
-            .finally(() => {
+          .then(() => {
+            knex('food_items')
+              .select('*')
+              .whereIn('id', foodID)
+              .then((names) => {
+                let messageData = ""
+                for (let i = 0; i < names.length; i++) {
+                  messageData = `${foodQty} orders of ${names[i].item_name}`
+                }
+                const message =
+                `You have a new order from ${phone}\n
+                They ordered: ${messageData}\n
+                Estimate time for pickup?`;
+                const orderText = {
+                  user_id : id[0],
+                  restaurant_id : names[0].restaurant_id,
+                  user_order: message
+                }
+                knex('texts')
+                  .insert(orderText)
+                  .then(() => {
+                  res.redirect('/orders/' + userURL);
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                    throw err;
+                  })
+                  .finally(() => {
+                  })
               })
-            });
+          })
+      });
+
     });
 
 
@@ -122,18 +144,13 @@ function generateRandomString() {
 
 // WITHIN SCRIPT FOR ORDERS EJS
 
-$(document).ready(function() {
+// $(document).ready(function() {
 
-  $('#CONFIRMATION').click(function() {
-    $.ajax('/twilio', {method: 'GET', {USER_DATA})
-      .done(function() {
-        $('#CONFIRMATION').css('visibility', 'hidden');
-      })
-  })
+//   $('#CONFIRMATION').click(function() {
+//     $.ajax('/twilio', {method: 'GET', {USER_DATA})
+//       .done(function() {
+//         $('#CONFIRMATION').css('visibility', 'hidden');
+//       })
+//   })
 
-}
-
-
-
-
-
+// }
