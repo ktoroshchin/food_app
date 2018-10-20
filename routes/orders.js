@@ -36,12 +36,12 @@ module.exports = (knex) => {
       phone_number: phone,
       shortURL: userURL
     }];
-    console.log(req.body)
+
     const clientItems = {}
+
     for(let item in req.body) {
       if(req.body[item] != 0) {
-       clientItems[item] = req.body[item];
-       console.log(clientItems)
+        clientItems[item] = req.body[item];
       }
     }
 
@@ -50,35 +50,57 @@ module.exports = (knex) => {
     // removes phone number
 
     const userOrder = [];
+    const foodQty = [];
 
     knex('users')
       .insert(userInfo)
       .returning('id')
       .then((id) => {
-        console.log(id[0])
           for (var i = 0; i < foodID.length; i++) {
+            foodID[i] = Number(foodID[i]);
+            foodQty.push(Number(clientItems[foodID[i]]));
             userOrder.push(
-                { food_id: Number(foodID[i]), // sent as string -> turn to number
+                { food_id: foodID[i], // sent as string -> turn to number
                   user_id: id[0],
-                  quantity: Number(clientItems[foodID[i]])
+                  quantity: clientItems[foodID[i]]
                 })
           }
-          console.log(userOrder)
         knex('order_details')
           .insert(userOrder)
-            .then(() => {
-              res.redirect('/orders/' + userURL);
-            })
-            .catch((err) => {
-              console.log(err);
-              throw err;
-            })
-            .finally(() => {
+          .then(() => {
+            knex('food_items')
+              .select('*')
+              .whereIn('id', foodID)
+              .then((names) => {
+                let messageData = ""
+                for (let i = 0; i < names.length; i++) {
+                  messageData = `${foodQty} orders of ${names[i].item_name}`
+                }
+                const message =
+                `You have a new order from ${phone}\n
+                They ordered: ${messageData}\n
+                Estimate time for pickup?`;
+                const orderText = {
+                  user_id : id[0],
+                  restaurant_id : names[0].restaurant_id,
+                  user_order: message
+                }
+                knex('texts')
+                  .insert(orderText)
+                  .then(() => {
+                  res.redirect('/orders/' + userURL);
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                    throw err;
+                  })
+                  .finally(() => {
+                  })
               })
-            });
+          })
+      });
+
     });
-
-
 
 
   router.get('/:shortURL', (req, res) => {
@@ -86,11 +108,11 @@ module.exports = (knex) => {
       .select('*')
       .innerJoin('order_details', 'users.id', 'order_details.user_id')
       .innerJoin('food_items', 'order_details.food_id', 'food_items.id')
+      .innerJoin('restaurants', 'restaurants.id', 'food_items.restaurant_id')
       .where({
         shortURL: req.params.shortURL
       })
       .then((userOrder) => {
-        console.log(req.params.shortURL)
         res.render('orders', {
           userOrder
         });
@@ -100,7 +122,6 @@ module.exports = (knex) => {
         throw err;
       })
       .finally(() => {
-        // knex.destroy();
       });
   });
   return router;
@@ -115,3 +136,22 @@ function generateRandomString() {
   }
   return randomID;
 }
+
+
+
+
+// // AJAX on click of confirmation
+// //      -> GET twilio, hide confirmation div
+
+// // WITHIN SCRIPT FOR ORDERS EJS
+
+// $(document).ready(function() {
+
+//   $('#confirm').click(function() {
+//     $.ajax('/twilio', {method: 'GET', {USER_DATA})
+//       .done(function() {
+//         $('#CONFIRMATION').css('visibility', 'hidden');
+//       })
+//   })
+
+// }
