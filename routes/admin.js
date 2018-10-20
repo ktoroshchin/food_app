@@ -5,7 +5,7 @@ const router = express.Router();
 
 module.exports = (knex) => {
 
-  router.get("/:id/orders", (req, res) => {
+  router.get('/:id/orders', (req, res) => {
     knex
       .select('*')
       .from('users')
@@ -19,9 +19,9 @@ module.exports = (knex) => {
           orderObj[order.shortURL] = orderObj[order.shortURL] || [];
           orderObj[order.shortURL].push(order);
         }
-        res.render('admins', { orderObj: orderObj })
+        res.render('admins', { orderObj: orderObj });
         // res.json(orderObj)
-        })
-    })
-    return router;
-}
+      });
+  });
+  return router;
+};
