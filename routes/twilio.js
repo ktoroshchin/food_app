@@ -73,6 +73,7 @@ module.exports = (knex) => {
           restaurant_text: req.body.Body,
           time_sent: req._startTime
         })
+
         .catch((err) => {
           throw err;
         })
