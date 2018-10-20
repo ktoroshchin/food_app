@@ -1,37 +1,57 @@
 // THEME COLORS
-$lightbrown: #E79951;
+$lightbrown: #D3B99C;
+$brown: #A8937C;
+$darkbrown: #582707;
+$black: #000000;
+$red: #DD2D4A;
+$rusty: #DD2D4A;
+$orange: #FF9505;
+$borderbrown: #9B5C03;
+$mustard: rgba(221, 153, 51, 0.9);
+$dryred: #4b0101;
 
+
+#main-form {
+background-color: $lightbrown;
+}
 
 #main-container {
   margin-left: 12rem;
   margin-right: 12rem;
-  background-color: $lightbrown;
-
+  background-color: $brown;
 
   #pizza-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: $lightbrown;
 
     #pizza-title {
       text-align: center;
       font-size: 2rem;
+      font-family: 'special elite', courier, serif; 
+      font-weight: 700;
+      color: white;
+
     }
 
     #pizza-display {
-      // width: 100%;
       text-align: center;
       font-size: 0.3rem;
 
       .card-section {
         width: auto;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        background-color: $mustard;
+        border: 0.5px solid $black;
 
         .card-div {
           display: flex;
           justify-content: center;
           height: 12rem;
           .card-img {
+            max-width: 100%;
+            height: auto;
             width: 12rem;
             height: 10rem;
           }
