@@ -14,6 +14,8 @@ module.exports = (knex) => {
   //twilio example
   let userPhone = '+15144244664';
   const twilioPhone = '+14509991704';
+// global? available to get & post?
+
 
   router.get('/', function (req, res) {
 
@@ -24,8 +26,8 @@ module.exports = (knex) => {
         shortURL: req.params.shortURL
       })
       .then((text_info) => {
-          userPhone = user.phone_number;
-          message = texts.user_order;
+          userPhone = text_info.phone_number;
+          message = text_info.user_order;
       })
       .catch((err) => {
         console.log(err);
@@ -56,18 +58,39 @@ module.exports = (knex) => {
     //instant message back to restaurant
     twiml.message(`Message received: ${req._startTime}\nMessage (ETA): ${req.body.Body}`);
 
-    //instant text message
-    const confirm = `Your order has been confirmed! Estimated time til pick up: ${req.body.Body}`;
+
+    knex('users')
+      .select('id')
+      .where({'phone_number': userPhone })
+      then((id) => {
+        knex('texts')
+          .where({'user_id' : id[0]})
+          .update( {
+            restaurant_text : req.body.Body,
+            time_sent : req._startTime
+          })
+          .catch((err) => {
+            throw err;
+          })
+          .finally(() => {
+          });
+      })
+
+
+
 
     // IN GET SMS
     // once restaurant has confirmed time -> update page
     // in div insert text
-    $('#TIME_FOR_PICKUP').replaceWith(`Time to pick up: ${req.body.Body}`);
+    $('#time').replaceWith(`Time to pick up: ${req.body.Body}`);
+
+    //instant text message
+    const confirmMessage = `Your order has been confirmed! Estimated time til pick up: ${req.body.Body}`;
 
     client.messages.create({
         to: userPhone, // Text this number
         from: twilioPhone, // From a valid Twilio number
-        body: confirm
+        body: confirmMessage
       },
       function (err, data) {
         if (err) {
@@ -83,30 +106,3 @@ module.exports = (knex) => {
   });
   return router;
 }
-
-
-// knex('texts')
-//       .select('*')
-//       .innerJoin('restaurants', 'restaurants.id', 'restaurant_id')
-//       .innerJoin('users', 'users.id', 'texts.user_id')
-//       .where({shortURL: req.params.shortURL})
-//       .then((text_info) => {
-//   userPhone = userPhone;
-//   message = `You have a new order from ${userPhone}\n They ordered: ${texts.restaurant_text}\n Estimate time for pickup?`;
-//   const textOrder = {
-//     user_id : users.id,
-//     restaurant_id : restaurants.id,
-//     user_order : message
-//     restaurant_text
-//     time_sent
-//   }
-//         knex('texts');
-//           .insert(textOrder)
-
-//           .catch((err) => {
-//             console.log(err);
-//             throw err;
-//           })
-//           .finally(() => {
-//           });
-//       })

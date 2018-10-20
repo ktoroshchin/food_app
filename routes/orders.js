@@ -108,6 +108,7 @@ module.exports = (knex) => {
       .select('*')
       .innerJoin('order_details', 'users.id', 'order_details.user_id')
       .innerJoin('food_items', 'order_details.food_id', 'food_items.id')
+      .innerJoin('restaurants', 'restaurants.id', 'food_items.restaurant_id')
       .where({
         shortURL: req.params.shortURL
       })
@@ -139,14 +140,14 @@ function generateRandomString() {
 
 
 
-// AJAX on click of confirmation
-//      -> GET twilio, hide confirmation div
+// // AJAX on click of confirmation
+// //      -> GET twilio, hide confirmation div
 
-// WITHIN SCRIPT FOR ORDERS EJS
+// // WITHIN SCRIPT FOR ORDERS EJS
 
 // $(document).ready(function() {
 
-//   $('#CONFIRMATION').click(function() {
+//   $('#confirm').click(function() {
 //     $.ajax('/twilio', {method: 'GET', {USER_DATA})
 //       .done(function() {
 //         $('#CONFIRMATION').css('visibility', 'hidden');
