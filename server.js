@@ -31,6 +31,7 @@ app.use(morgan('dev'));
 
 // Log knex SQL queries to STDOUT as well
 app.use(knexLogger(knex));
+
 app.use(cookieParser());
 
 

@@ -13,7 +13,7 @@ module.exports = (knex) => {
 
   //twilio example
 
-  let userPhone = '+15144244664';
+  let userPhone;
   let restaurantPhone = '+14388860748';
   const twilioPhone = '+14509991704';
   // global? available to get & post?
@@ -25,11 +25,21 @@ module.exports = (knex) => {
       .select('*')
       .innerJoin('users', 'users.id', 'texts.user_id')
       .where({
-        shortURL: req.cookie('shortURL')
+        shortURL: req.cookies['shortURL']
       })
       .then((text_info) => {
-        userPhone = text_info.phone_number;
-        message = text_info.user_order;
+        userPhone = text_info[0].phone_number; ///
+        client.messages.create({
+            to: restaurantPhone, // Text this number
+            from: twilioPhone, // From a valid Twilio number
+            body: text_info[0].user_order
+          },
+          function (err, data) {
+            if (err) {
+              console.log(err);
+            } else {}
+          }
+        );
       })
       .catch((err) => {
         console.log(err);
@@ -38,17 +48,6 @@ module.exports = (knex) => {
       .finally(() => {});
 
 
-    client.messages.create({
-        to: restaurantPhone, // Text this number
-        from: twilioPhone, // From a valid Twilio number
-        body: 'message'
-      },
-      function (err, data) {
-        if (err) {
-          console.log(err);
-        } else {}
-      }
-    );
 
   });
 
@@ -59,7 +58,6 @@ module.exports = (knex) => {
 
     //instant message back to restaurant
     twiml.message(`Message received: ${req._startTime}\nMessage (ETA): ${req.body.Body}`);
-
 
     knex('users')
       .select('id')
@@ -81,9 +79,7 @@ module.exports = (knex) => {
         .finally(() => {});
     })
 
-    // IN GET SMS
-    // once restaurant has confirmed time -> update page
-    // in div insert text
+
     $('#time').replaceWith(`Time to pick up: ${req.body.Body}`);
 
     //instant text message
