@@ -9,9 +9,6 @@ const bodyParser = require('body-parser');
 const sass = require('node-sass-middleware');
 const app = express();
 
-//twilio example
-const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-
 const knexConfig = require('./knexfile');
 const knex = require('knex')(knexConfig[ENV]);
 const morgan = require('morgan');
@@ -21,6 +18,7 @@ const knexLogger = require('knex-logger');
 const orderRoutes = require('./routes/orders');
 const indexRoutes = require('./routes/index');
 const adminRoutes = require('./routes/admin');
+const twilioRoutes = require('./routes/twilio');
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -58,10 +56,10 @@ app.use('/styles', sass({
 app.use(express.static('public'));
 
 // Mount all resource routes
-
-app.use("/", indexRoutes(knex));
-app.use("/orders", orderRoutes(knex));
-app.use("/admins", adminRoutes(knex));
+app.use('/', indexRoutes(knex));
+app.use('/orders', orderRoutes(knex));
+app.use('/admins', adminRoutes(knex));
+app.use('/', twilioRoutes(knex));
 
 app.listen(PORT, () => {
   console.log('Example app listening on port ' + PORT);

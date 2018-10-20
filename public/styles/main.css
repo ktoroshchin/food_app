@@ -5,6 +5,19 @@ body h1 {
   color: #244751;
 }
 
+#cost {
+  width: 100%;
+  height: 5em;
+}
+
+#pickUp {
+  display: flex;
+  justify-content: space-between;
+}
+#pickUp .pickUpInfo {
+  margin: auto;
+}
+
 #main-container {
   margin-left: 12rem;
   margin-right: 12rem;
@@ -65,17 +78,77 @@ body h1 {
     margin-right: auto;
   }
 }
-#cost {
-  width: 100%;
-  height: 5em;
+.menu-item {
+  background-color: #D3D3D3;
+}
+.menu-item .row {
+  padding: 10px;
+}
+.menu-item .row .picture-container div {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+.menu-item .row .item-name {
+  display: flex;
+  height: 3em;
+  align-self: flex-end;
+  justify-content: center;
+  align-content: center;
+  background-color: #CC0000;
+  border-radius: 10px;
+}
+.menu-item .row .item-name p {
+  align-self: center;
+  margin: 0px;
+  color: #FFFFFF;
+}
+.menu-item .row .cost {
+  display: flex;
+  height: 3em;
+  align-self: flex-end;
+  justify-content: center;
+  align-content: center;
+  background-color: #CC0000;
+  border-radius: 10px;
+}
+.menu-item .row .cost p {
+  align-self: center;
+  margin: 0px;
+  color: #FFFFFF;
 }
 
-#pickUp {
+.order-cost .row .total-cost {
+  background-color: #CC0000;
+  color: #FFFFFF;
+  padding: 0px;
+  height: 3em;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: flex-end;
 }
-#pickUp .pickUpInfo {
-  margin: auto;
+.order-cost .row .total-cost p {
+  color: #FFFFFF;
+}
+.order-cost .row .where-pickup {
+  background-color: #808080;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.order-cost .row .where-pickup p {
+  color: #FFFFFF;
+}
+.order-cost .row .time-until-ready {
+  background-color: #808080;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.order-cost .row .time-until-ready p {
+  color: #FFFFFF;
 }
 
 /*# sourceMappingURL=main.css.map */
