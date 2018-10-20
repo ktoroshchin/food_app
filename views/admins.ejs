@@ -2,43 +2,41 @@
 
 
 
-<div class="jumbotron">
-
+<div class="jumbotron background-style">
 <% for(let restaurant in orderObj) { %>
-<h1> Restaurant:  <%=orderObj[restaurant][0].address%> </h1>
+  <% restaurantAddress = orderObj[restaurant][0].address%>
 <% } %>
 
+<h1> Restaurant: <%=restaurantAddress%>   </h1>
+
 <table class="table table-hover">
-  <thead>
+  <thead class="table-head">
     <tr>
-      <th scope="col">userid</th>
-      <th scope="col">user phone number</th>
-      <th scope="col">order item</th>
-      <th scope="col">quantity</th>
+      <th class="text-head" scope="col">userid</th>
+      <th class="text-head" scope="col">customer phone number</th>
+      <th class="text-head" scope="col">order item</th>
+      <th class="text-head" scope="col">quantity</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="table-data">
 
     <% for(let index in orderObj) { %>
 
-    <tr>
+    <tr id="hide-data">
 
-      <td> <%=orderObj[index][0].user_id%> </td>
-      <td> <%=orderObj[index][0].phone_number%> </td>
-      <% orderObj[index].forEach(function(item) { %>
-        <td> <%= item.item_name %> </td>
-        <td> <%= item.quantity %> </td>
-
-    </tr>
-
-    <tr>
-        <td></td>
-        <td></td>
-      <% }) %>
+      <td id="hide-data"><%=orderObj[index][0].user_id%> <button type="submit" class="btn btn-danger delete-button"> Delete</button></td>
+      <td id="hide-data"> <%=orderObj[index][0].phone_number%> </td>
+    <% orderObj[index].forEach(function(item) { %>
+      <td id="hide-data"> <%= item.item_name %> </td>
+      <td id="hide-data"> <%= item.quantity %> </td>
 
     </tr>
-        <% } %>
-      </td>
+
+      <td id="hide-data"></td>
+      <td id="hide-data"></td>
+    <% }) %>
+  <% } %>
+
   </tbody>
 </table>
     <a href="" class="btn btn-info">change time</a>
