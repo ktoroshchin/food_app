@@ -1,10 +1,13 @@
 body {
-  background-color: #EEE;
-}
-body h1 {
-  color: #244751;
+  background-color: black;
 }
 
+#navbar {
+  background-color: #000000;
+  color: white;
+  font-family: "special elite", courier, serif;
+  font-weight: 700;
+}
 #cost {
   width: 100%;
   height: 5em;
@@ -18,34 +21,46 @@ body h1 {
   margin: auto;
 }
 
+#main-form {
+  background-color: #D3B99C;
+}
+
 #main-container {
   margin-left: 12rem;
   margin-right: 12rem;
-  background-color: grey;
+  background-color: #A8937C;
 }
 #main-container #pizza-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: lightgrey;
 }
 #main-container #pizza-container #pizza-title {
   text-align: center;
   font-size: 2rem;
+  font-family: "special elite", courier, serif;
+  font-weight: 700;
+  color: white;
 }
 #main-container #pizza-container #pizza-display {
   text-align: center;
   font-size: 0.3rem;
 }
-#main-container #pizza-container #pizza-display .cards {
-  width: 20rem;
+#main-container #pizza-container #pizza-display .card-section {
+  width: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: rgba(221, 153, 51, 0.9);
+  border: 0.5px solid #000000;
 }
-#main-container #pizza-container #pizza-display .card-div {
+#main-container #pizza-container #pizza-display .card-section .card-div {
   display: flex;
   justify-content: center;
   height: 12rem;
 }
-#main-container #pizza-container #pizza-display .card-div .card-img {
+#main-container #pizza-container #pizza-display .card-section .card-div .card-img {
+  max-width: 100%;
+  height: auto;
   width: 12rem;
   height: 10rem;
 }
@@ -79,7 +94,7 @@ body h1 {
   }
 }
 .menu-item {
-  background-color: #D3D3D3;
+  background-color: #E2D2C2;
 }
 .menu-item .row {
   padding: 10px;
@@ -95,13 +110,13 @@ body h1 {
   align-self: flex-end;
   justify-content: center;
   align-content: center;
-  background-color: #CC0000;
+  background-color: #4b0101;
   border-radius: 10px;
 }
 .menu-item .row .item-name p {
   align-self: center;
   margin: 0px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .menu-item .row .cost {
   display: flex;
@@ -109,18 +124,18 @@ body h1 {
   align-self: flex-end;
   justify-content: center;
   align-content: center;
-  background-color: #CC0000;
+  background-color: #4b0101;
   border-radius: 10px;
 }
 .menu-item .row .cost p {
   align-self: center;
   margin: 0px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .order-cost .row .total-cost {
-  background-color: #CC0000;
-  color: #FFFFFF;
+  background-color: #4b0101;
+  color: #ffffff;
   padding: 0px;
   height: 3em;
   display: flex;
@@ -128,27 +143,27 @@ body h1 {
   align-items: flex-end;
 }
 .order-cost .row .total-cost p {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .order-cost .row .where-pickup {
-  background-color: #808080;
+  background-color: #582707;
   height: 3em;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 .order-cost .row .where-pickup p {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .order-cost .row .time-until-ready {
-  background-color: #808080;
+  background-color: #582707;
   height: 3em;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 .order-cost .row .time-until-ready p {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=main.css.map */

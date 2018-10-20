@@ -1,10 +1,13 @@
-$red: #CC0000;
-$white: #FFFFFF;
-$lightGrey: #D3D3D3;
-$darkGrey: #808080;
+$lightbrown: #E2D2C2;
+$darkbrown: #582707;
+$black: #000000;
+$dryred: #4b0101;
+$red: #DD2D4A;
+$white: #ffffff;
+$orange: #FF9505;
 
 .menu-item {
-  background-color: $lightGrey;
+  background-color: $lightbrown;
 
   .row {
     padding: 10px;
@@ -22,7 +25,7 @@ $darkGrey: #808080;
       align-self: flex-end;
       justify-content: center;
       align-content: center;
-      background-color: $red;
+      background-color: $dryred;
       border-radius: 10px;
 
       p {
@@ -38,7 +41,7 @@ $darkGrey: #808080;
       align-self: flex-end;
       justify-content: center;
       align-content: center;
-      background-color: $red;
+      background-color: $dryred;
       border-radius: 10px;
 
       p {
@@ -55,7 +58,7 @@ $darkGrey: #808080;
 
 
     .total-cost {
-      background-color: #CC0000;
+      background-color: $dryred;
       color: $white;
       padding: 0px;
       height: 3em;
@@ -71,7 +74,7 @@ $darkGrey: #808080;
   .row {
 
     .where-pickup {
-      background-color: $darkGrey;
+      background-color: $darkbrown;
       height: 3em;
       display: flex;
       justify-content: center;
@@ -81,7 +84,7 @@ $darkGrey: #808080;
       }
     }
     .time-until-ready {
-      background-color: $darkGrey;
+      background-color: $darkbrown;
       height: 3em;
       display: flex;
       justify-content: center;

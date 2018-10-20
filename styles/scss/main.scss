@@ -1,4 +1,15 @@
-@import 'layout';
+// THEME COLORS
+$lightbrown: #E2D2C2;
+$darkbrown: #582707;
+$black: #000000;
+$red: #DD2D4A;
+$orange: #FF9505;
+
+
+body {
+  background-color: black;
+}
+
 @import 'navbar';
 @import 'order';
 @import 'index';

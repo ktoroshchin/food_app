@@ -4,18 +4,18 @@ const router = express.Router();
 
 module.exports = (knex) => {
 
-  const menu = {
-    pizza: [],
-    sides: [],
-    drinks: []
-  };
+  
 
   router.get('/', (req, res) => {
     knex('food_items')
       .select('*')
       .then((data) => {
+        const menu = {
+          pizza: [],
+          sides: [],
+          drinks: []
+        };
         data.forEach(item => {
-
           if (item.category === 'pizza') {
             menu.pizza.push(item);
           } else if (item.category === 'sides') {
@@ -23,8 +23,8 @@ module.exports = (knex) => {
           } else if (item.category === 'drinks') {
             menu.drinks.push(item);
           }
-
         });
+        console.log(menu.drinks);
         res.render('index', {
           menu: menu
         });
