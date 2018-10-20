@@ -1,15 +1,9 @@
 <%- include('partials/header.ejs') %>
 
-
-<nav class="navbar navbar-dark bg-primary" id="navbar">
-  Navbar content
-  <div id="title">Food Pick-Up App</div>
-</nav>
-
-<form action="/orders" method="POST">
+<form id="main-form" action="/orders" method="POST">
   <div id="main-container">
     <div id="pizza-container">
-      <div id="pizza-title">Pizza</div>
+      <div id="pizza-title">Burgers</div>
       <div id="pizza-display">
 
         <div class="container">
@@ -17,13 +11,14 @@
 
             <% for(var i = 0 ; i < menu.pizza.length; i++) {%>
             <div class="col-s-12 col-md-6 col-lg-4">
-              <div class="card">
+              <div class="card card-section">
                 <div class="card-body">
                   <h4 class="card-title">
                     <%= menu.pizza[i].item_name%>
                   </h4>
-                  <div class="card-div">
-                    <img src="<%= menu.pizza[i].photo_URL %>" class="card-img img-fluid">
+                  <div class="card-div ">
+                    <!-- <img src="<%= menu.pizza[i].photo_URL %>" class="card-img img-fluid"> -->
+                    <img src="http://storage.googleapis.com/bro-cdn1/zgrid/themes/10307/images/home/pizza.png" class="card-img img-fluid">
                   </div>
                   <p class="card-text">$
                     <%= menu.pizza[i].price %>
