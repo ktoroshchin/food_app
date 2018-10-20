@@ -64,7 +64,7 @@ module.exports = (knex) => {
       .where({
         'phone_number': userPhone
       })
-    then((id) => {
+    .then((id) => {
       knex('texts')
         .where({
           'user_id': id[0]
@@ -73,16 +73,19 @@ module.exports = (knex) => {
           restaurant_text: req.body.Body,
           time_sent: req._startTime
         })
+        .then(() => {
 
+        })
         .catch((err) => {
           throw err;
         })
         .finally(() => {});
     })
 
-
-    $('#time').replaceWith(`Time to pick up: ${req.body.Body}`);
-
+  // $(document).ready(function () {
+    // $('#time').replaceWith(`Time to pick up: ${req.body.Body}`);
+    // it doesn't know what file you're refering to
+// })
     //instant text message
     const confirmMessage = `Your order has been confirmed! Estimated time til pick up: ${req.body.Body}`;
 
@@ -101,6 +104,8 @@ module.exports = (knex) => {
       'Content-Type': 'text/xml'
     });
     res.end(twiml.toString());
+
+
   });
   return router;
 };
