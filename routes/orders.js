@@ -15,17 +15,16 @@ module.exports = (knex) => {
     }
 
     if(req.body.phone.length === 11) {
+      phone = "+" + req.body.phone;
       // user inputed all numbers without ticks
-      phone = "+" + req.body.phone;
     } else if (req.body.phone.length === 10){
+      phone = "+1" + req.body.phone;
       // all numbers without tick, without 1
-      phone = "+" + req.body.phone;
     } else if (req.body.phone.length === 12){
-      // all numbers with tick, without 1
       phone = "+1" + req.body.phone.slice(0,2) + req.body.phone.slice(4,7)+ req.body.phone.slice(8);
+      // all numbers with tick, without 1
     } else if (req.body.phone.length === 14){
       // all numbers with tick, with 1
-      // it's good
       phone = req.body.phone;
     } else {
       res.send('invalid number - try again')
