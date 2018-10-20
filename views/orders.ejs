@@ -6,10 +6,9 @@
   <div id="title">Food Pick-Up App</div>
 </nav> -->
 
+<% totalPrice = 0 %>
 
-<% totalPrice = 0 * 0.15 %>
 <% for(let i = 0; i < userOrder.length; i++) { %>
-  <% totalPrice += userOrder[i].price %>
 <div class="container menu-item">
   <div class="row">
     <div class="col-sm-3 picture-container">
@@ -23,20 +22,21 @@
     </div>
   </div>
 </div>
+<% totalPrice += userOrder[i].price %>
+<% restaurantAddress = userOrder[i].address %>
+<%= console.log(userOrder)%>
 <% } %>
 
-
-
-
+<% totalPrice = (totalPrice * 1.15).toFixed(2) %>
 <div class="container order-cost">
   <div class="row">
     <div class="col-12 total-cost">
-      <p>$<%= totalPrice %></p>
+      <p> $<%= totalPrice %> </p>
     </div>
   </div>
   <div class="row">
     <div class="col-6 where-pickup">
-      <p>Where to Pick up</p>
+      <p> <%= restaurantAddress %> </p>
     </div>
     <div class="col-6 time-until-ready">
       <p>Time until ready</p>

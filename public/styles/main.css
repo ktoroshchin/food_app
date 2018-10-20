@@ -110,7 +110,7 @@ body {
   align-self: flex-end;
   justify-content: center;
   align-content: center;
-  background-color: #DD2D4A;
+  background-color: #4b0101;
   border-radius: 10px;
 }
 .menu-item .row .item-name p {
@@ -124,7 +124,7 @@ body {
   align-self: flex-end;
   justify-content: center;
   align-content: center;
-  background-color: #DD2D4A;
+  background-color: #4b0101;
   border-radius: 10px;
 }
 .menu-item .row .cost p {
@@ -134,7 +134,7 @@ body {
 }
 
 .order-cost .row .total-cost {
-  background-color: #DD2D4A;
+  background-color: #4b0101;
   color: #ffffff;
   padding: 0px;
   height: 3em;
