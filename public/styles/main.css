@@ -79,7 +79,7 @@ body h1 {
   }
 }
 .menu-item {
-  background-color: #D3D3D3;
+  background-color: #E2D2C2;
 }
 .menu-item .row {
   padding: 10px;
@@ -95,13 +95,13 @@ body h1 {
   align-self: flex-end;
   justify-content: center;
   align-content: center;
-  background-color: #CC0000;
+  background-color: #DD2D4A;
   border-radius: 10px;
 }
 .menu-item .row .item-name p {
   align-self: center;
   margin: 0px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .menu-item .row .cost {
   display: flex;
@@ -109,18 +109,18 @@ body h1 {
   align-self: flex-end;
   justify-content: center;
   align-content: center;
-  background-color: #CC0000;
+  background-color: #DD2D4A;
   border-radius: 10px;
 }
 .menu-item .row .cost p {
   align-self: center;
   margin: 0px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .order-cost .row .total-cost {
-  background-color: #CC0000;
-  color: #FFFFFF;
+  background-color: #DD2D4A;
+  color: #ffffff;
   padding: 0px;
   height: 3em;
   display: flex;
@@ -128,27 +128,27 @@ body h1 {
   align-items: flex-end;
 }
 .order-cost .row .total-cost p {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .order-cost .row .where-pickup {
-  background-color: #808080;
+  background-color: #582707;
   height: 3em;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 .order-cost .row .where-pickup p {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .order-cost .row .time-until-ready {
-  background-color: #808080;
+  background-color: #582707;
   height: 3em;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 .order-cost .row .time-until-ready p {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=main.css.map */
