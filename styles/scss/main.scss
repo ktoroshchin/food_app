@@ -1,9 +1,7 @@
-body {
-  background-color: #EEE;
+$lightbrown: #E79951;
 
-  h1 {
-    color: #244751;
-  }
+body {
+  background-color: $lightbrown;
 }
 
 @import 'navbar';

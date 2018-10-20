@@ -1,14 +1,18 @@
+// THEME COLORS
+$lightbrown: #E79951;
+
+
 #main-container {
   margin-left: 12rem;
   margin-right: 12rem;
-  background-color: grey;
+  background-color: $lightbrown;
 
 
   #pizza-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: lightgrey;
+    background-color: $lightbrown;
 
     #pizza-title {
       text-align: center;
@@ -20,18 +24,20 @@
       text-align: center;
       font-size: 0.3rem;
 
-      .cards {
-        width: 20rem;
-      }
-      .card-div {
-        display: flex;
-        justify-content: center;
-        height: 12rem;
-        .card-img {
-          width: 12rem;
-          height: 10rem;
+      .card-section {
+        width: auto;
+
+        .card-div {
+          display: flex;
+          justify-content: center;
+          height: 12rem;
+          .card-img {
+            width: 12rem;
+            height: 10rem;
+          }
         }
       }
+      
     }
   }
 

@@ -1,8 +1,5 @@
 body {
-  background-color: #EEE;
-}
-body h1 {
-  color: #244751;
+  background-color: #E79951;
 }
 
 #cost {
@@ -21,13 +18,13 @@ body h1 {
 #main-container {
   margin-left: 12rem;
   margin-right: 12rem;
-  background-color: grey;
+  background-color: #E79951;
 }
 #main-container #pizza-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: lightgrey;
+  background-color: #E79951;
 }
 #main-container #pizza-container #pizza-title {
   text-align: center;
@@ -37,15 +34,15 @@ body h1 {
   text-align: center;
   font-size: 0.3rem;
 }
-#main-container #pizza-container #pizza-display .cards {
-  width: 20rem;
+#main-container #pizza-container #pizza-display .card-section {
+  width: auto;
 }
-#main-container #pizza-container #pizza-display .card-div {
+#main-container #pizza-container #pizza-display .card-section .card-div {
   display: flex;
   justify-content: center;
   height: 12rem;
 }
-#main-container #pizza-container #pizza-display .card-div .card-img {
+#main-container #pizza-container #pizza-display .card-section .card-div .card-img {
   width: 12rem;
   height: 10rem;
 }
