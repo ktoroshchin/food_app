@@ -36,12 +36,12 @@ module.exports = (knex) => {
       phone_number: phone,
       shortURL: userURL
     }];
-    console.log(req.body)
+
     const clientItems = {}
+
     for(let item in req.body) {
       if(req.body[item] != 0) {
-       clientItems[item] = req.body[item];
-       console.log(clientItems)
+        clientItems[item] = req.body[item];
       }
     }
 
@@ -50,12 +50,15 @@ module.exports = (knex) => {
     // removes phone number
 
     const userOrder = [];
+    message =
+    `You have a new order from ${phone}\n
+    They ordered: ${food_Qty}\n
+    Estimate time for pickup?`;
 
     knex('users')
       .insert(userInfo)
       .returning('id')
       .then((id) => {
-        console.log(id[0])
           for (var i = 0; i < foodID.length; i++) {
             userOrder.push(
                 { food_id: Number(foodID[i]), // sent as string -> turn to number
@@ -63,7 +66,6 @@ module.exports = (knex) => {
                   quantity: Number(clientItems[foodID[i]])
                 })
           }
-          console.log(userOrder)
         knex('order_details')
           .insert(userOrder)
             .then(() => {
@@ -79,8 +81,6 @@ module.exports = (knex) => {
     });
 
 
-
-
   router.get('/:shortURL', (req, res) => {
     knex('users')
       .select('*')
@@ -90,7 +90,6 @@ module.exports = (knex) => {
         shortURL: req.params.shortURL
       })
       .then((userOrder) => {
-        console.log(req.params.shortURL)
         res.render('orders', {
           userOrder
         });
@@ -100,7 +99,6 @@ module.exports = (knex) => {
         throw err;
       })
       .finally(() => {
-        // knex.destroy();
       });
   });
   return router;
@@ -115,3 +113,27 @@ function generateRandomString() {
   }
   return randomID;
 }
+
+
+
+
+// AJAX on click of confirmation
+//      -> GET twilio, hide confirmation div
+
+// WITHIN SCRIPT FOR ORDERS EJS
+
+$(document).ready(function() {
+
+  $('#CONFIRMATION').click(function() {
+    $.ajax('/twilio', {method: 'GET', {USER_DATA})
+      .done(function() {
+        $('#CONFIRMATION').css('visibility', 'hidden');
+      })
+  })
+
+}
+
+
+
+
+

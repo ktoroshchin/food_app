@@ -12,13 +12,32 @@ module.exports = (knex) => {
   const MessagingResponse = require("twilio").twiml.MessagingResponse;
 
   //twilio example
-  const userPhone = "+15144244664";
+  let userPhone = '+15144244664';
+  const twilioPhone = '+14509991704';
 
-  router.get("/twilio", function (req, res) {
-    const message = "You have a new order! from " + userPhone + ", they ordered 1 greek pizza, one fry, and 1 soda. How long will this order take to prepare?"
+  router.get('/', function (req, res) {
+
+    knex('texts')
+      .select('*')
+      .innerJoin('users', 'users.id', 'texts.user_id')
+      .where({
+        shortURL: req.params.shortURL
+      })
+      .then((text_info) => {
+          userPhone = user.phone_number;
+          message = texts.user_order;
+      })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      })
+      .finally(() => {
+      });
+
+
     client.messages.create({
-        to: '+14388860748', // Text this number
-        from: "+14509991704", // From a valid Twilio number
+        to: userPhone, // Text this number
+        from: twilioPhone, // From a valid Twilio number
         body: message
       },
       function (err, data) {
@@ -30,18 +49,24 @@ module.exports = (knex) => {
   });
 
 
-  router.post("/sms", function (req, res) {
+  router.post('/sms', function (req, res) {
     var twilio = require("twilio");
     var twiml = new MessagingResponse();
 
     //instant message back to restaurant
-    twiml.message("Message recived at: '" + req._startTime + "', " + "Message: '" + req.body.Body + "', Order will take " + req.body.Body + " minutes until ready!");
+    twiml.message(`Message received: ${req._startTime}\nMessage (ETA): ${req.body.Body}`);
 
     //instant text message
-    const confirm = 'Your order has been confirmed, it will take' + req.body.Body + '!';
+    const confirm = `Your order has been confirmed! Estimated time til pick up: ${req.body.Body}`;
+
+    // IN GET SMS
+    // once restaurant has confirmed time -> update page
+    // in div insert text
+    $('#TIME_FOR_PICKUP').replaceWith(`Time to pick up: ${req.body.Body}`);
+
     client.messages.create({
         to: userPhone, // Text this number
-        from: "+14509991704", // From a valid Twilio number
+        from: twilioPhone, // From a valid Twilio number
         body: confirm
       },
       function (err, data) {
@@ -51,7 +76,6 @@ module.exports = (knex) => {
       }
     );
 
-    // console.log("Message recived at: '" + req._startTime + "', " + "Message: '" + req.body.Body + "', Order will take " + req.body.Body + " minutes until ready!");
     res.writeHead(200, {
       "Content-Type": "text/xml"
     });
@@ -59,3 +83,5 @@ module.exports = (knex) => {
   });
   return router;
 }
+
+
