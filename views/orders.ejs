@@ -50,7 +50,7 @@
       <p id="time">Time until ready</p>
     </div>
 </div>
-<div class="" id="confirm-div">
+<div class="" id="confirm">
     <button class="btn btn-succes">Confirm</button>
   </div>
 </div>
@@ -65,17 +65,9 @@
 
   $(document).ready(function () {
 
-        $('#confirm').click(function () {
-            $.ajax('/twilio', {
-                method: 'GET',
-                {
-                  shortURL: userOrder[0].shortURL
-
-                })
-              .done(function () {
-                $('#CONFIRMATION').css('visibility', 'hidden');
-              })
-            })
-        }
-      }
+    $('#confirm').click(function () {
+      $('#confirm').css('visibility', 'hidden');
+        $.ajax('/twilio', {method: 'GET'})
+      })
+  })
 </script>

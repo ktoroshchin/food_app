@@ -88,6 +88,7 @@ module.exports = (knex) => {
                 knex('texts')
                   .insert(orderText)
                   .then(() => {
+                  res.cookie('shortURL', userURL)
                   res.redirect('/orders/' + userURL);
                   })
                   .catch((err) => {
