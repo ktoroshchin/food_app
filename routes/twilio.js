@@ -8,26 +8,27 @@ const client = require("twilio")(
 
 module.exports = (knex) => {
 
-  //twilio example
   const MessagingResponse = require("twilio").twiml.MessagingResponse;
-
-  //twilio example
   const userPhone = "+15144244664";
+  const restaurant_number = '+14388860748';
 
   router.get("/twilio", function (req, res) {
     const message = "You have a new order! from " + userPhone + ", they ordered 1 greek pizza, one fry, and 1 soda. How long will this order take to prepare?"
     client.messages.create({
-        to: '+14388860748', // Text this number
+        to: restaurant_number, // Text this number
         from: "+14509991704", // From a valid Twilio number
         body: message
       },
       function (err, data) {
         if (err) {
           console.log(err);
-        } else {}
+        } else {
+
+        }
       }
     );
   });
+
 
 
   router.post("/sms", function (req, res) {
@@ -50,12 +51,14 @@ module.exports = (knex) => {
         } else {}
       }
     );
-
     // console.log("Message recived at: '" + req._startTime + "', " + "Message: '" + req.body.Body + "', Order will take " + req.body.Body + " minutes until ready!");
     res.writeHead(200, {
       "Content-Type": "text/xml"
     });
     res.end(twiml.toString());
   });
+
+
+
   return router;
 }
