@@ -14,8 +14,9 @@ module.exports = (knex) => {
   //twilio example
 
   let userPhone = '+15144244664';
+  let restaurantPhone = '+14388860748';
   const twilioPhone = '+14509991704';
-// global? available to get & post?
+  // global? available to get & post?
 
 
   router.get('/', function (req, res) {
@@ -27,21 +28,20 @@ module.exports = (knex) => {
         shortURL: req.params.shortURL
       })
       .then((text_info) => {
-          userPhone = text_info.phone_number;
-          message = text_info.user_order;
+        userPhone = text_info.phone_number;
+        message = text_info.user_order;
       })
       .catch((err) => {
         console.log(err);
         throw err;
       })
-      .finally(() => {
-      });
+      .finally(() => {});
 
 
     client.messages.create({
-        to: userPhone, // Text this number
+        to: restaurantPhone, // Text this number
         from: twilioPhone, // From a valid Twilio number
-        body: message
+        body: 'message'
       },
       function (err, data) {
         if (err) {
@@ -63,23 +63,23 @@ module.exports = (knex) => {
 
     knex('users')
       .select('id')
-      .where({'phone_number': userPhone })
-      then((id) => {
-        knex('texts')
-          .where({'user_id' : id[0]})
-          .update( {
-            restaurant_text : req.body.Body,
-            time_sent : req._startTime
-          })
-          .catch((err) => {
-            throw err;
-          })
-          .finally(() => {
-          });
+      .where({
+        'phone_number': userPhone
       })
-
-
-
+    then((id) => {
+      knex('texts')
+        .where({
+          'user_id': id[0]
+        })
+        .update({
+          restaurant_text: req.body.Body,
+          time_sent: req._startTime
+        })
+        .catch((err) => {
+          throw err;
+        })
+        .finally(() => {});
+    })
 
     // IN GET SMS
     // once restaurant has confirmed time -> update page

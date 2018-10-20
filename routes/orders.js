@@ -140,18 +140,3 @@ function generateRandomString() {
 
 
 
-// // AJAX on click of confirmation
-// //      -> GET twilio, hide confirmation div
-
-// // WITHIN SCRIPT FOR ORDERS EJS
-
-// $(document).ready(function() {
-
-//   $('#confirm').click(function() {
-//     $.ajax('/twilio', {method: 'GET', {USER_DATA})
-//       .done(function() {
-//         $('#CONFIRMATION').css('visibility', 'hidden');
-//       })
-//   })
-
-// }

@@ -133,6 +133,14 @@ body {
   color: #ffffff;
 }
 
+.order-cost #confirm-div {
+  position: absolute;
+  z-index: 10000000;
+  left: 0px;
+  top: 100px;
+  height: 3em;
+  background-color: #000000;
+}
 .order-cost .row .total-cost {
   background-color: #4b0101;
   color: #ffffff;
@@ -145,24 +153,24 @@ body {
 .order-cost .row .total-cost p {
   color: #ffffff;
 }
-.order-cost .row .where-pickup {
+.order-cost #info-div .where-pickup {
   background-color: #582707;
   height: 3em;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
-.order-cost .row .where-pickup p {
+.order-cost #info-div .where-pickup p {
   color: #ffffff;
 }
-.order-cost .row .time-until-ready {
+.order-cost #info-div .time-until-ready {
   background-color: #582707;
   height: 3em;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
-.order-cost .row .time-until-ready p {
+.order-cost #info-div .time-until-ready p {
   color: #ffffff;
 }
 

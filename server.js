@@ -9,6 +9,10 @@ const bodyParser = require('body-parser');
 const sass = require('node-sass-middleware');
 const app = express();
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 const knexConfig = require('./knexfile');
 const knex = require('knex')(knexConfig[ENV]);
 const morgan = require('morgan');
@@ -29,24 +33,6 @@ app.use(knexLogger(knex));
 
 app.set('view engine', 'ejs');
 
-//twilio example
-app.get('/twilio', function (req, res) {
-  client.messages.create({
-    to: '+15144244664', // Text this number
-    from: '+14509991704', // From a valid Twilio number
-    body: 'Order from +51442444664, 4 greek pizzas, 1 fry, how long will it take ? '
-  }, function (err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('DATA:  ', data);
-    }
-  });
-});
-
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
 app.use('/styles', sass({
   src: __dirname + '/styles',
   dest: __dirname + '/public/styles',

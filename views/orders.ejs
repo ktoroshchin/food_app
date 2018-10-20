@@ -1,45 +1,78 @@
 <%- include('partials/header.ejs') %>
 
 <% totalPrice = 0 %>
-<% for(let i = 0; i < userOrder.length; i++) { %>
-<div class="container menu-item">
-  <div class="row">
-    <div class="col-sm-3 picture-container">
-      <div style="background:url(<%= userOrder[i].photo_URL %>)"></div>
-    </div>
-    <div class="col-sm-3 item-name offset-md-1">
-      <p><%= userOrder[i].item_name %> x <%= userOrder[i].quantity %></p>
 
-    </div>
-    <div class="col-sm-3 cost offset-md-1">
-      <p>$<%= (userOrder[i].price * userOrder[i].quantity)  %></p>
+<div id="order-container container">
+
+  <% for(let i = 0; i < userOrder.length; i++) { %>
+  <div class="container menu-item">
+    <div class="row">
+      <div class="col-sm-3 picture-container">
+        <div style="background:url(<%= userOrder[i].photo_URL %>)"></div>
+      </div>
+      <div class="col-sm-3 item-name offset-md-1">
+        <p>
+          <%= userOrder[i].item_name %> x
+          <%= userOrder[i].quantity %>
+        </p>
+
+      </div>
+      <div class="col-sm-3 cost offset-md-1">
+        <p>$
+          <%= (userOrder[i].price * userOrder[i].quantity)  %>
+        </p>
+      </div>
     </div>
   </div>
+  <% totalPrice += (userOrder[i].price * userOrder[i].quantity) %>
+  <% restaurantAddress = userOrder[i].address %>
+  <% } %>
+
 </div>
-<% totalPrice += (userOrder[i].price * userOrder[i].quantity) %>
-<% restaurantAddress = userOrder[i].address %>
-<% } %>
 
 <% totalPrice = (totalPrice * 1.15).toFixed(2) %>
 <div class="container order-cost">
   <div class="row">
     <div class="col-12 total-cost">
-      <p> $<%= totalPrice %> </p>
+      <p> $
+        <%= totalPrice %>
+      </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row" id="info-div">
     <div class="col-6 where-pickup">
-      <p>Pick up address: <%= restaurantAddress %> </p>
+      <p>Pick up address:
+        <%= restaurantAddress %>
+      </p>
       <% console.log(restaurantAddress)%>
     </div>
     <div class="col-6 time-until-ready">
       <p id="time">Time until ready</p>
     </div>
+</div>
+<div class="" id="confirm-div">
+    <button class="btn btn-succes">Confirm</button>
   </div>
 </div>
 
-
-
-
-
 <%- include('partials/footer.ejs') %>
+
+<!-- <script>
+  // AJAX on click of confirmation
+  //      -> GET twilio, hide confirmation div
+
+  // WITHIN SCRIPT FOR ORDERS EJS
+
+  $(document).ready(function () {
+
+        $('#confirm').click(function () {
+            $.ajax('/twilio', {
+                method: 'GET',  { shortURL: userOrder[0].shortURL }
+                })
+              .done(function () {
+                $('#CONFIRMATION').css('visibility', 'hidden');
+              })
+            })
+        }
+      }
+</script> -->

@@ -11,13 +11,14 @@ $orange: #FF9505;
 
   .row {
     padding: 10px;
-    .picture-container{
-    div {
-      width:200px;
-      height:200px;
-      border-radius: 10px;
+
+    .picture-container {
+      div {
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+      }
     }
-  }
 
     .item-name {
       display: flex;
@@ -54,9 +55,8 @@ $orange: #FF9505;
 }
 
 .order-cost {
+  
   .row {
-
-
     .total-cost {
       background-color: $dryred;
       color: $white;
@@ -71,27 +71,33 @@ $orange: #FF9505;
       }
     }
   }
-  .row {
 
+  #info-div {
     .where-pickup {
       background-color: $darkbrown;
       height: 3em;
       display: flex;
       justify-content: center;
       align-items: flex-end;
+
       p {
         color: $white;
       }
     }
+
     .time-until-ready {
       background-color: $darkbrown;
       height: 3em;
       display: flex;
       justify-content: center;
       align-items: flex-end;
+
       p {
         color: $white;
       }
+    }
+    #confirm-div  {
+      height: 3em;
     }
   }
 }
