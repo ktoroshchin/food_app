@@ -4,16 +4,19 @@ $darkbrown: #582707;
 $black: #000000;
 $red: #DD2D4A;
 $orange: #FF9505;
+$brown: #A8937C;
+
 
 html {
   font-family: 'special elite', courier, serif; 
   height: 100%;
+  background-color: black!important;
 
 }
 body {
-  background-color: black;
   font-family: 'special elite', courier, serif; 
   height: 100%;
+  background-color: black!important;
 }
 
 @import 'navbar';

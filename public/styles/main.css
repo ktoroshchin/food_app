@@ -1,12 +1,13 @@
 html {
   font-family: "special elite", courier, serif;
   height: 100%;
+  background-color: black !important;
 }
 
 body {
-  background-color: black;
   font-family: "special elite", courier, serif;
   height: 100%;
+  background-color: black !important;
 }
 
 #navbar {
@@ -133,6 +134,12 @@ body {
   font-family: "special elite", courier, serif;
   font-weight: 700;
   color: white;
+  border-radius: 5px;
+  border-bottom: 2px solid black;
+  margin-bottom: 5px;
+}
+#main-container #burger-container #burger-title:hover {
+  cursor: pointer;
 }
 #main-container #burger-container #burger-display {
   text-align: center;
@@ -154,12 +161,12 @@ body {
   display: flex;
   justify-content: center;
   height: 12rem;
+  margin-bottom: 10px;
 }
 #main-container #burger-container #burger-display .card-section .card-div .card-img {
-  max-width: 100%;
+  max-width: 200px;
+  min-width: 170px;
   height: auto;
-  width: 12rem;
-  height: 10rem;
   border: 2px solid black;
   border-radius: 20px;
 }
