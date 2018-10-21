@@ -13,7 +13,7 @@ module.exports = (knex) => {
       .innerJoin('food_items', 'order_details.food_id', 'food_items.id')
       .innerJoin('restaurants', 'restaurants.id', 'food_items.restaurant_id')
       .where('restaurants.id', req.params.id)
-      // .where('food_items.picked_up', 0)
+      .where('picked_up', 0)
       .then((clientOrders) => {
         const orderObj = {};
         for (const order of clientOrders) {
@@ -44,7 +44,7 @@ module.exports = (knex) => {
         console.log(err); throw err
       })
       .finally(() => {
-        console.log('inthe update')
+        console.log('in the update')
       })
 
 
