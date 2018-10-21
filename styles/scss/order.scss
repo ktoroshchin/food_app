@@ -1,118 +1,95 @@
-$lightbrown: #E2D2C2;
-$darkbrown: #582707;
-$black: #000000;
-$dryred: #4b0101;
-$red: #DD2D4A;
-$white: #ffffff;
-$orange: #FF9505;
+.cart-main {
+  border: 3px solid white;
+  border-radius: 10px;
 
-#cost {
-  width: 100%;
-  height: 5em;
-}
 
-#pickUp {
-  display: flex;
-  justify-content: space-between;
+  #cart-container {
 
-  .pickUpInfo {
-  margin: auto
+    .item {
+      height: auto;
+
+      #cart-text {
+        margin: auto;
+        font-size: 2.3rem;
+        font-family: 'special elite', courier, serif;
+      }
+
+      .item-img {
+        display: flex;
+        justify-content: center;
+
+        img {
+          max-height: 90px !important;
+          border: 3px solid black;
+          border-radius: 1rem;
+
+        }
+      }
+
+      .item-name {
+        font-family: 'special elite', courier, serif;
+        font-size: 1.25rem;
+        width: auto;
+        height: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .item-quantity {
+        font-family: 'special elite', courier, serif;
+        font-size: 1.25rem;
+        width: auto;
+        height: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .item-price {
+        font-family: 'special elite', courier, serif;
+        font-size: 1.25rem;
+        width: auto;
+        height: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    }
+
+    #total-price {
+      border: 3px solid white;
+      border-radius: 7px;
+      margin-top: 10px;
+      margin-top: 5px;
+
+      #total-text {
+        margin: auto;
+        font-size: 2.3rem;
+        font-family: 'special elite', courier, serif;
+      }
+    }
+
+    #confirm {
+      border: 3px solid black;
+      border-radius: 7px;
+      margin-top: 10px;
+      margin-top: 5px;
+      background-color: white;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+
+      #confirm-text {
+        margin: auto;
+        font-size: 2.3rem;
+        font-family: 'special elite', courier, serif;
+      }
+
+      #confirmed {
+        margin: auto;
+        font-size: 2rem;
+        font-family: 'special elite', courier, serif;
+      }
+    }
   }
 
-}
 
-.menu-item {
-  background-color: $lightbrown;
-
-  .row {
-    padding: 10px;
-
-    .picture-container {
-      div {
-        width: 200px;
-        height: 200px;
-        border-radius: 10px;
-      }
-    }
-
-    .item-name {
-      display: flex;
-      height: 3em;
-      align-self: flex-end;
-      justify-content: center;
-      align-content: center;
-      background-color: $dryred;
-      border-radius: 10px;
-
-      p {
-        align-self: center;
-        margin: 0px;
-        color: $white;
-      }
-    }
-
-    .cost {
-      display: flex;
-      height: 3em;
-      align-self: flex-end;
-      justify-content: center;
-      align-content: center;
-      background-color: $dryred;
-      border-radius: 10px;
-
-      p {
-        align-self: center;
-        margin: 0px;
-        color: $white;
-      }
-    }
-  }
-}
-
-.order-cost {
-  
-  .row {
-    .total-cost {
-      background-color: $dryred;
-      color: $white;
-      padding: 0px;
-      height: 3em;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-
-      p {
-        color: $white;
-      }
-    }
-  }
-
-  #info-div {
-    .where-pickup {
-      background-color: $darkbrown;
-      height: 3em;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-
-      p {
-        color: $white;
-      }
-    }
-
-    .time-until-ready {
-      background-color: $darkbrown;
-      height: 3em;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-
-      p {
-        color: $white;
-      }
-    }
-    #confirm-div  {
-      height: 3em;
-    }
-  }
 }

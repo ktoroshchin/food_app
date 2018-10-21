@@ -6,21 +6,19 @@ $red: #DD2D4A;
 $orange: #FF9505;
 $brown: #A8937C;
 
-
 html {
-  font-family: 'special elite', courier, serif; 
+  font-family: 'special elite', courier, serif;
   height: 100%;
-  background-color: black!important;
-
+  background-color: black !important;
 }
+
 body {
-  font-family: 'special elite', courier, serif; 
+  font-family: 'special elite', courier, serif;
   height: 100%;
-  background-color: black!important;
+  background-color: black !important;
 }
 
 @import 'navbar';
-@import 'orders';
+@import 'order';
 @import 'index';
-@import 'orders_shortURL';
 @import 'admins';
