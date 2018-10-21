@@ -1,62 +1,48 @@
 <%- include('partials/header.ejs') %>
-
 <% totalPrice = 0 %>
 
-<div id="order-container container">
+<div id="main-container" class="cart-main">
+  <div id="cart-container" class="container">
 
-  <% for(let i = 0; i < userOrder.length; i++) { %>
-  <div class="container menu-item">
-    <div class="row">
-      <div class="col-sm-3 picture-container">
-        <div style="background:url(<%= userOrder[i].photo_URL %>)"></div>
+      <div class="row item">
+        <p id="cart-text">Your Cart:</p>
       </div>
-      <div class="col-sm-3 item-name offset-md-1">
-        <p>
-          <%= userOrder[i].item_name %> x
-          <%= userOrder[i].quantity %>
-        </p>
 
-      </div>
-      <div class="col-sm-3 cost offset-md-1">
-        <p>$
-          <%= (userOrder[i].price * userOrder[i].quantity)  %>
-        </p>
-      </div>
+    <% for(let i = 0; i < userOrder.length; i++) { %>
+    <div class="row item">
+        <div class="item-img col-lg-3 col-sm-3 col-md-3 col-xs-12">
+          <img class="img-fluid" src="<%= userOrder[i].photo_URL %>">
+        </div>
+        <div class="item-name col-lg-3 col-sm-3 col-md-3 col-xs-12">
+          <a><%= userOrder[i].item_name %></a>
+        </div>
+        <div class="item-quantity col-lg-3 col-sm-3 col-md-3 col-xs-12">
+          <a>x <%= userOrder[i].quantity %></a>
+        </div>
+        <div class="item-price col-lg-3 col-sm-3 col-md-3 col-xs-12">
+          <a>$<%= (userOrder[i].price * userOrder[i].quantity) %></a>
+        </div>
     </div>
-  </div>
-  <% totalPrice += (userOrder[i].price * userOrder[i].quantity) %>
-  <% restaurantAddress = userOrder[i].address %>
-  <% } %>
 
-</div>
 
-<% totalPrice = (totalPrice * 1.15).toFixed(2) %>
-<div class="container order-cost">
-  <div class="row">
-    <div class="col-12 total-cost">
-      <p> $
-        <%= totalPrice %>
-      </p>
+    <% totalPrice += (userOrder[i].price * userOrder[i].quantity) %>
+    <% restaurantAddress = userOrder[i].address %>
+    <% } %>
+    <% totalPrice = (totalPrice * 1.15).toFixed(2) %>
+
+    <div class="row" id="total-price">
+      <p id="total-text">Total Cost: <%= totalPrice %></p>
     </div>
-  </div>
-  <div class="row" id="info-div">
-    <div class="col-6 where-pickup">
-      <p>Pick up address:
-        <%= restaurantAddress %>
-      </p>
-      <% console.log(restaurantAddress)%>
-    </div>
-    <div class="col-6 time-until-ready">
-      <p id="time">Time until ready</p>
-    </div>
-</div>
-<div class="" id="confirm">
-    <button class="btn btn-succes">Confirm</button>
+    <button class="row" id="confirm">
+        <p id="confirm-text">Confirm Order</p>
+    </button>
   </div>
   <div class="" id="check">
     <button class="btn btn-succes">CHECK</button>
   </div>
 </div>
+<<<<<<< HEAD
+=======
 
 <%- include('partials/footer.ejs') %>
 
@@ -82,3 +68,4 @@
 
   })
 </script>
+>>>>>>> 4bacfcba70327b5cbbd604261eca8407f510f6dd

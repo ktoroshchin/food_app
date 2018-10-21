@@ -1,12 +1,13 @@
 html {
   font-family: "special elite", courier, serif;
   height: 100%;
+  background-color: black !important;
 }
 
 body {
-  background-color: black;
   font-family: "special elite", courier, serif;
   height: 100%;
+  background-color: black !important;
 }
 
 #navbar {
@@ -19,93 +20,81 @@ body {
   font-size: 1.3rem;
 }
 
-#cost {
-  width: 100%;
-  height: 5em;
+.cart-main {
+  border: 3px solid white;
+  border-radius: 10px;
 }
-
-#pickUp {
-  display: flex;
-  justify-content: space-between;
+.cart-main #cart-container .item {
+  height: auto;
 }
-#pickUp .pickUpInfo {
+.cart-main #cart-container .item #cart-text {
   margin: auto;
+  font-size: 2.3rem;
+  font-family: "special elite", courier, serif;
 }
-
-.menu-item {
-  background-color: #E2D2C2;
-}
-.menu-item .row {
-  padding: 10px;
-}
-.menu-item .row .picture-container div {
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;
-}
-.menu-item .row .item-name {
-  display: flex;
-  height: 3em;
-  align-self: flex-end;
-  justify-content: center;
-  align-content: center;
-  background-color: #4b0101;
-  border-radius: 10px;
-}
-.menu-item .row .item-name p {
-  align-self: center;
-  margin: 0px;
-  color: #ffffff;
-}
-.menu-item .row .cost {
-  display: flex;
-  height: 3em;
-  align-self: flex-end;
-  justify-content: center;
-  align-content: center;
-  background-color: #4b0101;
-  border-radius: 10px;
-}
-.menu-item .row .cost p {
-  align-self: center;
-  margin: 0px;
-  color: #ffffff;
-}
-
-.order-cost .row .total-cost {
-  background-color: #4b0101;
-  color: #ffffff;
-  padding: 0px;
-  height: 3em;
+.cart-main #cart-container .item .item-img {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
 }
-.order-cost .row .total-cost p {
-  color: #ffffff;
+.cart-main #cart-container .item .item-img img {
+  max-height: 90px !important;
+  border: 3px solid black;
+  border-radius: 1rem;
 }
-.order-cost #info-div .where-pickup {
-  background-color: #582707;
-  height: 3em;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+.cart-main #cart-container .item .item-name {
+  font-family: "special elite", courier, serif;
+  font-size: 1.25rem;
+  width: auto;
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
-.order-cost #info-div .where-pickup p {
-  color: #ffffff;
+.cart-main #cart-container .item .item-quantity {
+  font-family: "special elite", courier, serif;
+  font-size: 1.25rem;
+  width: auto;
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
-.order-cost #info-div .time-until-ready {
-  background-color: #582707;
-  height: 3em;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+.cart-main #cart-container .item .item-price {
+  font-family: "special elite", courier, serif;
+  font-size: 1.25rem;
+  width: auto;
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
-.order-cost #info-div .time-until-ready p {
-  color: #ffffff;
+.cart-main #cart-container #total-price {
+  border: 3px solid white;
+  border-radius: 7px;
+  margin-top: 10px;
+  margin-top: 5px;
 }
-.order-cost #info-div #confirm-div {
-  height: 3em;
+.cart-main #cart-container #total-price #total-text {
+  margin: auto;
+  font-size: 2.3rem;
+  font-family: "special elite", courier, serif;
+}
+.cart-main #cart-container #confirm {
+  border: 3px solid black;
+  border-radius: 7px;
+  margin-top: 10px;
+  margin-top: 5px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.cart-main #cart-container #confirm #confirm-text {
+  margin: auto;
+  font-size: 2.3rem;
+  font-family: "special elite", courier, serif;
+}
+.cart-main #cart-container #confirm #confirmed {
+  margin: auto;
+  font-size: 2rem;
+  font-family: "special elite", courier, serif;
 }
 
 #main-form {
@@ -133,6 +122,12 @@ body {
   font-family: "special elite", courier, serif;
   font-weight: 700;
   color: white;
+  border-radius: 5px;
+  border-bottom: 2px solid black;
+  margin-bottom: 5px;
+}
+#main-container #burger-container #burger-title:hover {
+  cursor: pointer;
 }
 #main-container #burger-container #burger-display {
   text-align: center;
@@ -146,7 +141,7 @@ body {
   border: 0.5px solid #000000;
 }
 #main-container #burger-container #burger-display .card-section .title {
-  height: 2rem;
+  height: 2.75rem;
   font-family: "special elite", courier, serif;
   font-size: 1.5rem;
 }
@@ -154,12 +149,12 @@ body {
   display: flex;
   justify-content: center;
   height: 12rem;
+  margin-bottom: 10px;
 }
 #main-container #burger-container #burger-display .card-section .card-div .card-img {
-  max-width: 100%;
+  max-width: 200px;
+  min-width: 170px;
   height: auto;
-  width: 12rem;
-  height: 10rem;
   border: 2px solid black;
   border-radius: 20px;
 }
@@ -198,7 +193,7 @@ body {
   text-align: center;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #main-container {
     margin-left: auto;
     margin-right: auto;
