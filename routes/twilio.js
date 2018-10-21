@@ -59,29 +59,29 @@ module.exports = (knex) => {
     //instant message back to restaurant
     twiml.message(`Message received: ${req._startTime}\nMessage (ETA): ${req.body.Body}`);
 
-    knex('users')
-      .select('id')
-      .where({
-        'phone_number': userPhone
-      })
-    then((id) => {
-      knex('texts')
-        .where({
-          'user_id': id[0]
-        })
-        .update({
-          restaurant_text: req.body.Body,
-          time_sent: req._startTime
-        })
+    // knex('users')
+    //   .select('id')
+    //   .where({
+    //     'phone_number': userPhone
+    //   })
+    // then((id) => {
+    //   knex('texts')
+    //     .where({
+    //       'user_id': id[0]
+    //     })
+    //     .update({
+    //       restaurant_text: req.body.Body,
+    //       time_sent: req._startTime
+    //     })
 
-        .catch((err) => {
-          throw err;
-        })
-        .finally(() => {});
-    })
+    //     .catch((err) => {
+    //       throw err;
+    //     })
+    //     .finally(() => {});
+    // })
 
 
-    $('#time').replaceWith(`Time to pick up: ${req.body.Body}`);
+    // $('#time').replaceWith(`Time to pick up: ${req.body.Body}`);
 
     //instant text message
     const confirmMessage = `Your order has been confirmed! Estimated time til pick up: ${req.body.Body}`;
