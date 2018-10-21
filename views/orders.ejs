@@ -23,8 +23,6 @@
           <a>$<%= (userOrder[i].price * userOrder[i].quantity) %></a>
         </div>
     </div>
-
-
     <% totalPrice += (userOrder[i].price * userOrder[i].quantity) %>
     <% restaurantAddress = userOrder[i].address %>
     <% } %>
@@ -37,35 +35,4 @@
         <p id="confirm-text">Confirm Order</p>
     </button>
   </div>
-  <div class="" id="check">
-    <button class="btn btn-succes">CHECK</button>
-  </div>
 </div>
-<<<<<<< HEAD
-=======
-
-<%- include('partials/footer.ejs') %>
-
-<script>
-  // AJAX on click of confirmation
-  //      -> GET twilio, hide confirmation div
-
-  // WITHIN SCRIPT FOR ORDERS EJS
-
-  $(document).ready(function () {
-
-    $('#confirm').click(function () {
-      $('#confirm').css('visibility', 'hidden');
-        $.ajax('/twilio', {method: 'GET'})
-      })
-
-    $('#check').click(function () {
-      $('#check').css('visibility', 'hidden');
-        $.ajax('/twilio/sms', {method: 'POST'})
-      })
-
-
-
-  })
-</script>
->>>>>>> 4bacfcba70327b5cbbd604261eca8407f510f6dd
