@@ -28,5 +28,45 @@
 - Node 5.10.x or above
 - NPM 3.8.x or above
 
+## Features
+
+- Database holds every item which The Restaurant wishes to sell/present to the user
+- This includes the item's name, price, a picture, and a "category" - to allow for better organization in the menu section
+- The Restaurant's items are displayed on the root page; item name, price, and a picture, all sorted by category which are collapsable for user's convenience 
+- The Restaurant's menu index is available on mobile as well - with altered graphics to best fit size
+- No login required
+- After making their choices, the user enters a phone number for contact and is directed to the order page
+- The order page displays the user's selected choices and awaits for confirmation
+- Once confirmed, the user order is sent - via text message - to The Restaurant (staff member)
+- The Restaurant replies to the order with an approximate wait time, which is directly sent to the user; the Restaurant receives confirmation text that
+- Text messages sent using API: twilio
+
+## User Stories
+
+As a user
+I want to know when I can pick up my order
+Because I am busy and need to organize my schedule
+Because I don't want to waste my time waiting for my order
+Because I don't want to miss my order pickup and have my food go cold
+
+Given that I made an order to pick up on the way to meet my friend
+When I receive a text confirming the time to pick up
+Then I can best decide when to leave the house
 
 
+As a user
+I want to make sure I made the proper order
+Because sometimes I forget things
+
+Given that I made an order and submitted it
+When I get to the orders page I can double check my cart before confirming it
+Then I know I ordered everything I wanted to
+
+
+As a Restaurant owner
+I want to check to check the orders that will be picked up
+Because I can best organize my staff
+
+Given that I can check all orders made to me via the admins page
+When an order has been picked up
+Then I can confirm it with a click of a button and remove it from the page

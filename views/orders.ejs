@@ -53,6 +53,9 @@
 <div class="" id="confirm">
     <button class="btn btn-succes">Confirm</button>
   </div>
+  <div class="" id="check">
+    <button class="btn btn-succes">CHECK</button>
+  </div>
 </div>
 
 <%- include('partials/footer.ejs') %>
@@ -69,5 +72,13 @@
       $('#confirm').css('visibility', 'hidden');
         $.ajax('/twilio', {method: 'GET'})
       })
+
+    $('#check').click(function () {
+      $('#check').css('visibility', 'hidden');
+        $.ajax('/twilio/sms', {method: 'POST'})
+      })
+
+
+
   })
 </script>
