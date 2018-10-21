@@ -30,39 +30,50 @@ body {
   margin-right: 12rem;
   background-color: #A8937C;
 }
-#main-container #pizza-container {
+#main-container #burger-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border: 2px solid black;
+  border-radius: 5px;
 }
-#main-container #pizza-container #pizza-title {
+#main-container #burger-container #burger-title {
   text-align: center;
   font-size: 2rem;
   font-family: "special elite", courier, serif;
   font-weight: 700;
   color: white;
 }
-#main-container #pizza-container #pizza-display {
+#main-container #burger-container #burger-display {
   text-align: center;
   font-size: 0.3rem;
 }
-#main-container #pizza-container #pizza-display .card-section {
+#main-container #burger-container #burger-display .card-section {
   width: auto;
   border-radius: 10px;
   margin-bottom: 15px;
   background-color: rgba(221, 153, 51, 0.9);
   border: 0.5px solid #000000;
 }
-#main-container #pizza-container #pizza-display .card-section .card-div {
+#main-container #burger-container #burger-display .card-section .title {
+  height: 3.5rem;
+}
+#main-container #burger-container #burger-display .card-section .card-div {
   display: flex;
   justify-content: center;
   height: 12rem;
 }
-#main-container #pizza-container #pizza-display .card-section .card-div .card-img {
+#main-container #burger-container #burger-display .card-section .card-div .card-img {
   max-width: 100%;
   height: auto;
   width: 12rem;
   height: 10rem;
+}
+#main-container #burger-container #burger-display .dropdown {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8rem;
+  border: 2px solid black;
 }
 #main-container #submit-div {
   display: flex;

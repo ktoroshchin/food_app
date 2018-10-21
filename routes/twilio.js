@@ -14,7 +14,7 @@ module.exports = (knex) => {
   //twilio example
 
   let userPhone;
-  let restaurantPhone = '+14388860748';
+  let restaurantPhone = '+15144244664';
   const twilioPhone = '+14509991704';
   // global? available to get & post?
 
@@ -30,15 +30,15 @@ module.exports = (knex) => {
       .then((text_info) => {
         userPhone = text_info[0].phone_number; ///
         client.messages.create({
-            to: restaurantPhone, // Text this number
-            from: twilioPhone, // From a valid Twilio number
-            body: text_info[0].user_order
-          },
-          function (err, data) {
-            if (err) {
-              console.log(err);
-            } else {}
-          }
+          to: restaurantPhone, // Text this number
+          from: twilioPhone, // From a valid Twilio number
+          body: text_info[0].user_order
+        },
+        function (err, data) {
+          if (err) {
+            console.log(err);
+          } else {}
+        }
         );
       })
       .catch((err) => {
@@ -53,49 +53,46 @@ module.exports = (knex) => {
 
 
   router.post('/sms', function (req, res) {
-    var twilio = require("twilio");
+    var twilio = require('twilio');
     var twiml = new MessagingResponse();
 
     //instant message back to restaurant
     twiml.message(`Message received: ${req._startTime}\nMessage (ETA): ${req.body.Body}`);
 
-    // knex('users')
-    //   .select('id')
-    //   .where({
-    //     'phone_number': userPhone
-    //   })
-    // then((id) => {
-    //   knex('texts')
-    //     .where({
-    //       'user_id': id[0]
-    //     })
-    //     .update({
-    //       restaurant_text: req.body.Body,
-    //       time_sent: req._startTime
-    //     })
+    knex('users')
+      .select('id')
+      .where({
+        'phone_number': userPhone
+      })
+    then((id) => {
+      knex('texts')
+        .where({
+          'user_id': id[0]
+        })
+        .update({
+          restaurant_text: req.body.Body,
+          time_sent: req._startTime
+        })
 
-    //     .catch((err) => {
-    //       throw err;
-    //     })
-    //     .finally(() => {});
-    // })
-
-
-    // $('#time').replaceWith(`Time to pick up: ${req.body.Body}`);
+        .catch((err) => {
+          throw err;
+        })
+        .finally(() => {});
+    })
 
     //instant text message
     const confirmMessage = `Your order has been confirmed! Estimated time til pick up: ${req.body.Body}`;
 
     client.messages.create({
-        to: userPhone, // Text this number
-        from: twilioPhone, // From a valid Twilio number
-        body: confirmMessage
-      },
-      function (err, data) {
-        if (err) {
-          console.log(err);
-        } else {}
-      });
+      to: userPhone, // Text this number
+      from: twilioPhone, // From a valid Twilio number
+      body: confirmMessage
+    },
+    function (err, data) {
+      if (err) {
+        console.log(err);
+      } else {}
+    });
 
     res.writeHead(200, {
       'Content-Type': 'text/xml'

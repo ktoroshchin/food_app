@@ -20,12 +20,14 @@ background-color: $lightbrown;
   margin-right: 12rem;
   background-color: $brown;
 
-  #pizza-container {
+  #burger-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: 2px solid black;
+    border-radius: 5px;
 
-    #pizza-title {
+    #burger-title {
       text-align: center;
       font-size: 2rem;
       font-family: 'special elite', courier, serif; 
@@ -34,7 +36,7 @@ background-color: $lightbrown;
 
     }
 
-    #pizza-display {
+    #burger-display {
       text-align: center;
       font-size: 0.3rem;
 
@@ -44,6 +46,10 @@ background-color: $lightbrown;
         margin-bottom: 15px;
         background-color: $mustard;
         border: 0.5px solid $black;
+        
+        .title {
+          height: 3.5rem;
+        }
 
         .card-div {
           display: flex;
@@ -58,6 +64,12 @@ background-color: $lightbrown;
         }
       }
       
+      .dropdown {
+        margin-left: auto;
+        margin-right: auto;
+        width: 8rem;
+        border: 2px solid black;
+      }
     }
   }
 
