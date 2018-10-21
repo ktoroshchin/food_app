@@ -23,7 +23,6 @@ module.exports = (knex) => {
         res.render('admins', {
           orderObj: orderObj
         })
-        // res.json(orderObj)
       })
   })
 

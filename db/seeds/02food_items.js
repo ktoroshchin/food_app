@@ -17,21 +17,21 @@ exports.seed = function(knex, Promise) {
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: 'The McDave',
-            price: 8,
+            price: 7,
             photo_URL: 'https://static.olocdn.net/menu/applebees/c8bede75bcfce6120d010dd551b4a41f.jpg',
             category: 'burgers'
           }),
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: 'Classic Cheeseburger',
-            price: 8,
+            price: 9,
             photo_URL: 'https://static.olocdn.net/menu/applebees/ef96fd56d8977077be7d23070bd08b3c.jpg',
             category: 'burgers'
           }),
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: 'Bacon Delux',
-            price: 8,
+            price: 10,
             photo_URL: 'https://www.mrdelivery.com/editable/images/menuheading/156749.jpg',
             category: 'burgers'
           }),
@@ -45,7 +45,7 @@ exports.seed = function(knex, Promise) {
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: 'Wild Western',
-            price: 8,
+            price: 11,
             photo_URL: 'http://blog.visitbellevuewashington.com/wp-content/uploads/2015/04/Lunchbox-Laboratory-James-West-Burger.jpg',
             category: 'burgers'
           }),
@@ -68,21 +68,21 @@ exports.seed = function(knex, Promise) {
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: 'Garlic Bread',
-            price: 4,
+            price: 3,
             photo_URL: 'https://www.simplyrecipes.com/wp-content/uploads/2006/09/garlic-bread-horiz-a2-1800.jpg',
             category: 'sides'
           }),
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: 'Churros',
-            price: 4,
+            price: 5,
             photo_URL: 'https://assets.bonappetit.com/photos/58ff5f162278cd3dbd2c069c/16:9/w_1200,c_limit/churros.jpg',
             category: 'sides'
           }),
           knex('food_items').insert({
             restaurant_id: 1,
             item_name: 'Fries',
-            price: 4,
+            price: 3,
             photo_URL: 'https://www.seriouseats.com/2018/04/20180309-french-fries-vicky-wasik-15-1500x1125.jpg',
             category: 'sides'
           }),
