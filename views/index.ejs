@@ -23,16 +23,16 @@
                   </p>
                 </div>
 
-                <select class="btn btn-secondary dropdown-toggle dropdown" name="<%= menu.burgers[i].id%>" >
-                    <option value="0"></option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                  <br>
-                  <br>
+                <select class="btn btn-secondary dropdown-toggle dropdown" name="<%= menu.burgers[i].id%>">
+                  <option value="0">Quantity</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <br>
+                <br>
 
               </div>
             </div>
@@ -51,11 +51,110 @@
       </div>
     </div>
     <!-- new display here -->
-    <div id="submit-div">
-        <input type="tel" class="form-control bfh-phone" name= "phone" placeholder="Phone Number" id="submit-text-area" data-format="+1 (ddd) ddd-dddd">
-        <!-- <textarea name="phone" value="" placeholder="Phone Number" id="submit-text-area"></textarea> -->
-    <button id="submit-button" >Checkout Order</button>
+    <div id="burger-container">
+      <div id="burger-title">Sides</div>
+      <div id="burger-display">
+        <div class="container">
+          <div class="row">
+
+            <% for(var i = 0 ; i < menu.sides.length; i++) {%>
+            <div class="col-s-12 col-md-6 col-lg-4">
+              <div class="card card-section">
+                <div class="card-body">
+                  <h4 class="card-title title">
+                    <%= menu.sides[i].item_name%>
+                  </h4>
+                  <div class="card-div ">
+                    <img src="<%= menu.sides[i].photo_URL %>" class="card-img img-fluid">
+                  </div>
+                  <p class="card-text">$
+                    <%= menu.sides[i].price %>
+                  </p>
+                </div>
+
+                <select class="btn btn-secondary dropdown-toggle dropdown" name="<%= menu.sides[i].id%>">
+                  <option value="0"></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <br>
+                <br>
+
+              </div>
+            </div>
+            <% if(i===2) { %>
+          </div>
+          <div class="row">
+            <%}%>
+            <% }%>
+
+          </div>
+
+        </div>
+        <br>
+        <br>
+        <br>
       </div>
+    </div>
+    <!-- new display here -->
+    <div id="burger-container">
+      <div id="burger-title">Drinks</div>
+      <div id="burger-display">
+        <div class="container">
+          <div class="row">
+
+            <% for(var i = 0 ; i < menu.drinks.length; i++) {%>
+            <div class="col-s-12 col-md-6 col-lg-4">
+              <div class="card card-section">
+                <div class="card-body">
+                  <h4 class="card-title title">
+                    <%= menu.drinks[i].item_name%>
+                  </h4>
+                  <div class="card-div ">
+                    <img src="<%= menu.drinks[i].photo_URL %>" class="card-img img-fluid">
+                  </div>
+                  <p class="card-text">$
+                    <%= menu.drinks[i].price %>
+                  </p>
+                </div>
+
+                <select class="btn btn-secondary dropdown-toggle dropdown" name="<%= menu.drinks[i].id%>">
+                  <option value="0"></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <br>
+                <br>
+
+              </div>
+            </div>
+            <% if(i===2) { %>
+          </div>
+          <div class="row">
+            <%}%>
+            <% }%>
+
+          </div>
+
+        </div>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+
+    <div id="submit-div">
+      <input type="tel" class="form-control bfh-phone" name="phone" placeholder="Phone Number" id="submit-text-area"
+        data-format="+1 (ddd) ddd-dddd">
+      <!-- <textarea name="phone" value="" placeholder="Phone Number" id="submit-text-area"></textarea> -->
+      <button id="submit-button">Checkout Order</button>
+    </div>
   </div>
 </form>
 
