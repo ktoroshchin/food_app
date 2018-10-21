@@ -1,2 +1,40 @@
-<%- include('partials/header.ejs') %>\
+<%- include('partials/header.ejs') %>
 <% totalPrice = 0 %>
+
+<div id="main-container" class="cart-main">
+  <div id="cart-container" class="container">
+
+      <div class="row item">
+        <p id="cart-text">Your Cart:</p>
+      </div>
+
+    <% for(let i = 0; i < userOrder.length; i++) { %>
+    <div class="row item">
+        <div class="item-img col-lg-3 col-sm-3 col-md-3 col-xs-12">
+          <img class="img-fluid" src="<%= userOrder[i].photo_URL %>">
+        </div>
+        <div class="item-name col-lg-3 col-sm-3 col-md-3 col-xs-12">
+          <a><%= userOrder[i].item_name %></a>
+        </div>
+        <div class="item-quantity col-lg-3 col-sm-3 col-md-3 col-xs-12">
+          <a>x <%= userOrder[i].quantity %></a>
+        </div>
+        <div class="item-price col-lg-3 col-sm-3 col-md-3 col-xs-12">
+          <a>$<%= (userOrder[i].price * userOrder[i].quantity) %></a>
+        </div>
+    </div>
+
+
+    <% totalPrice += (userOrder[i].price * userOrder[i].quantity) %>
+    <% restaurantAddress = userOrder[i].address %>
+    <% } %>
+    <% totalPrice = (totalPrice * 1.15).toFixed(2) %>
+
+    <div class="row" id="total-price">
+      <p id="total-text">Total Cost: <%= totalPrice %></p>
+    </div>
+    <button class="row" id="confirm">
+        <p id="confirm-text">Confirm Order</p>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+.cart-main {
+  border: 3px solid white;
+  border-radius: 10px;
+
+
+  #cart-container {
+
+    .item {
+      height: auto;
+
+      #cart-text {
+        margin: auto;
+        font-size: 2.3rem;
+        font-family: 'special elite', courier, serif;
+      }
+
+      .item-img {
+        display: flex;
+        justify-content: center;
+
+        img {
+          max-height: 90px !important;
+          border: 3px solid black;
+          border-radius: 1rem;
+
+        }
+      }
+
+      .item-name {
+        font-family: 'special elite', courier, serif;
+        font-size: 1.25rem;
+        width: auto;
+        height: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .item-quantity {
+        font-family: 'special elite', courier, serif;
+        font-size: 1.25rem;
+        width: auto;
+        height: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .item-price {
+        font-family: 'special elite', courier, serif;
+        font-size: 1.25rem;
+        width: auto;
+        height: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    }
+
+    #total-price {
+      border: 3px solid white;
+      border-radius: 7px;
+      margin-top: 10px;
+      margin-top: 5px;
+      #total-text {
+        margin: auto;
+        font-size: 2.3rem;
+        font-family: 'special elite', courier, serif;
+      }
+    }
+
+    #confirm {
+      border: 3px solid black;
+      border-radius: 7px;
+      margin-top: 10px;
+      margin-top: 5px;
+      background-color: white;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+
+      #confirm-text {
+        margin: auto;
+        font-size: 2.3rem;
+        font-family: 'special elite', courier, serif;
+      }
+      #confirmed {
+        margin: auto;
+        font-size: 2rem;
+        font-family: 'special elite', courier, serif;
+      }
+    }
+  }
+
+
+}

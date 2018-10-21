@@ -51,23 +51,10 @@
     </div>
 </div>
 <div class="" id="confirm">
-    <button class="btn btn-succes">Confirm</button>
+    <button id="confirm-button" class="btn btn-succes">Confirm</button>
   </div>
 </div>
 
 <%- include('partials/footer.ejs') %>
 
-<script>
-  // AJAX on click of confirmation
-  //      -> GET twilio, hide confirmation div
 
-  // WITHIN SCRIPT FOR ORDERS EJS
-
-  $(document).ready(function () {
-
-    $('#confirm').click(function () {
-      $('#confirm').css('visibility', 'hidden');
-        $.ajax('/twilio', {method: 'GET'})
-      })
-  })
-</script>

@@ -61,7 +61,6 @@ module.exports = (knex) => {
     //instant text message
     const confirmMessage = `Your order has been confirmed! Estimated time til pick up: ${req.body.Body}`;
 
-
     knex('users')
       .select('id')
       .where({
@@ -104,6 +103,5 @@ module.exports = (knex) => {
           });
       });
   });
-
   return router;
 };

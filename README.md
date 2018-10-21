@@ -30,3 +30,6 @@
 
 
 
+<!--  
+<%= userOrder[i].quantity %>
+<%= (userOrder[i].price * userOrder[i].quantity)  %> -->

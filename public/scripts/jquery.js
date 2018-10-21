@@ -1,26 +1,25 @@
-$( document ).ready(function() {
-  console.log( "ready!" );
+$(document).ready(function () {
+  console.log('ready!');
 
-  $('.burgers-title').on('click', function(){
+  $('.burgers-title').on('click', function () {
     $('.burgers-div').slideToggle('slow');
   });
-  $('.sides-title').on('click', function(){
+  $('.sides-title').on('click', function () {
     $('.sides-div').slideToggle('slow');
   });
-  $('.drink-title').on('click', function(){
+  $('.drink-title').on('click', function () {
     $('.drink-div').slideToggle('slow');
   });
+
+
+  $('#confirm').click(function () {
+    $('#confirm').removeAttr();
+    $('#confirm-text').remove();
+    $.ajax('/twilio', {
+      method: 'GET'
+    });
+    $('#confirm').unbind('click');
+    $('#confirm').prepend('<p id="confirmed">Time Until Ready: -Check Phone- <p>');
+
+  });
 });
-
-
-// $("#tweet-container").on("mouseover", ".tweet-box", function () {
-//   $(this).css({
-//     "border": "1.7px solid rgba(128, 128, 128, 1)"
-//   });
-//   $(this).find(".tweet-header").css({
-//     "opacity": "1"
-//   });
-// })
-
-// class="drink-title"
-// class="drink-div"
