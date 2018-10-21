@@ -5,9 +5,13 @@ $black: #000000;
 $red: #DD2D4A;
 $orange: #FF9505;
 
+html {
+  font-family: 'special elite', courier, serif; 
 
+}
 body {
   background-color: black;
+  font-family: 'special elite', courier, serif; 
 }
 
 @import 'navbar';

@@ -1,5 +1,10 @@
+html {
+  font-family: "special elite", courier, serif;
+}
+
 body {
   background-color: black;
+  font-family: "special elite", courier, serif;
 }
 
 #navbar {
@@ -29,6 +34,9 @@ body {
   margin-left: 12rem;
   margin-right: 12rem;
   background-color: #A8937C;
+}
+#main-container #submit-button {
+  border-radius: 10px;
 }
 #main-container #burger-container {
   display: flex;

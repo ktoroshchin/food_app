@@ -20,6 +20,9 @@ background-color: $lightbrown;
   margin-right: 12rem;
   background-color: $brown;
 
+#submit-button {
+border-radius: 10px;
+}
   #burger-container {
     display: flex;
     flex-direction: column;
