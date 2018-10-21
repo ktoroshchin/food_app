@@ -52,7 +52,7 @@ module.exports = (knex) => {
   });
 
 
-  router.post('/sms', function (req, res) {
+ router.post('/sms', function (req, res) {
     var twilio = require('twilio');
     var twiml = new MessagingResponse();
 

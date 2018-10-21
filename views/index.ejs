@@ -8,23 +8,23 @@
         <div class="container">
           <div class="row">
 
-            <% for(var i = 0 ; i < menu.pizza.length; i++) {%>
+            <% for(var i = 0 ; i < menu.burgers.length; i++) {%>
             <div class="col-s-12 col-md-6 col-lg-4">
               <div class="card card-section">
                 <div class="card-body">
                   <h4 class="card-title title">
-                    <%= menu.pizza[i].item_name%>
+                    <%= menu.burgers[i].item_name%>
                   </h4>
                   <div class="card-div ">
-                    <!-- <img src="<%= menu.pizza[i].photo_URL %>" class="card-img img-fluid"> -->
+                    <!-- <img src="<%= menu.burgers[i].photo_URL %>" class="card-img img-fluid"> -->
                     <img src="http://storage.googleapis.com/bro-cdn1/zgrid/themes/10307/images/home/pizza.png" class="card-img img-fluid">
                   </div>
                   <p class="card-text">$
-                    <%= menu.pizza[i].price %>
+                    <%= menu.burgers[i].price %>
                   </p>
                 </div>
 
-                <select class="btn btn-secondary dropdown-toggle dropdown" name="<%= menu.pizza[i].id%>" >
+                <select class="btn btn-secondary dropdown-toggle dropdown" name="<%= menu.burgers[i].id%>" >
                     <option value="0"></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
