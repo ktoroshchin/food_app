@@ -39,9 +39,13 @@ module.exports = (knex) => {
         function (err, data) {
           if (err) {
             console.log(err);
+<<<<<<< HEAD
           } else {
             console.log(data.body);
           }
+=======
+          } else {}
+>>>>>>> 4bacfcba70327b5cbbd604261eca8407f510f6dd
         }
         );
       })
@@ -57,8 +61,14 @@ module.exports = (knex) => {
   router.post('/sms', function (req, res) {
     var twilio = require('twilio');
     var twiml = new MessagingResponse();
+<<<<<<< HEAD
     const prepTime = req.body.Body;
     const readyTime = moment().add(prepTime, 'minutes').calendar();  
+=======
+
+    //instant message back to restaurant
+    twiml.message(`Message received: ${req._startTime}\nMessage (ETA): ${req.body.Body}`);
+>>>>>>> 4bacfcba70327b5cbbd604261eca8407f510f6dd
 
     //instant text message
     const confirmMessage = `Your order has been confirmed! Food Should Be Ready ${readyTime}`;
@@ -103,6 +113,49 @@ module.exports = (knex) => {
       'Content-Type': 'text/xml'
     });
 
+<<<<<<< HEAD
+=======
+    knex('users')
+      .select('id')
+      .where({
+        'phone_number': userPhone
+      })
+    .then((id) => {
+      knex('texts')
+        .where({
+          'user_id': id[0]
+        })
+        .update({
+          restaurant_text: req.body.Body,
+          time_sent: req._startTime
+        })
+        .then(() => {
+
+        })
+        .catch((err) => {
+          throw err;
+        })
+        .finally(() => {});
+    })
+
+
+    client.messages.create({
+      to: userPhone, // Text this number
+      from: twilioPhone, // From a valid Twilio number
+      body: confirmMessage
+    },
+    function (err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+      }
+    });
+
+    res.writeHead(200, {
+      'Content-Type': 'text/xml'
+    });
+>>>>>>> 4bacfcba70327b5cbbd604261eca8407f510f6dd
     res.end(twiml.toString());
   });
 
