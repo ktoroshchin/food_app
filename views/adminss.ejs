@@ -1,0 +1,61 @@
+<%- include('partials/header.ejs') %>
+
+
+
+<div class="jumbotron background-style">
+<% for(let restaurant in orderObj) { %>
+  <% restaurantAddress = orderObj[restaurant][0].address%>
+<% } %>
+
+<h1> Restaurant: <%=restaurantAddress%>   </h1>
+
+<table class="table table-hover">
+  <thead class="table-head">
+    <tr>
+      <th class="text-head" scope="col">userid</th>
+      <th class="text-head" scope="col">customer phone number</th>
+      <th class="text-head" scope="col">order item</th>
+      <th class="text-head" scope="col">quantity</th>
+    </tr>
+  </thead>
+  <tbody class="table-data" class="ordercontainer">
+
+    <% for(let index in orderObj) { %>
+
+    <tr id="hide-data" class="pop">
+
+      <td id="hide-data" class="user"><%=orderObj[index][0].user_id%></td>
+      <td id="hide-data"> <%=orderObj[index][0].phone_number%>
+        <button class="pickedUp" class="btn btn-danger delete-button">
+         Picked Up
+       </button>
+      </td>
+    <% orderObj[index].forEach(function(item) { %>
+      <td id="hide-data"> <%= item.item_name %> </td>
+      <td id="hide-data"> <%= item.quantity %> </td>
+
+    </tr>
+
+      <td id="hide-data" ></td>
+      <td id="hide-data" ></td>
+    <% }) %>
+  <% } %>
+
+  </tbody>
+</table>
+</div>
+
+
+<%- include('partials/footer.ejs') %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.pop').click(function() {
+      $(this).css('background-color', 'purple')
+      const data_id = $(this).find('.user').text();
+      console.log( $(this).find('.user').text())
+      $.post('/admins', {data_id : data_id})
+    })
+  })
+
+</script>

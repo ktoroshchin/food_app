@@ -2,7 +2,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 module.exports = (knex) => {
 
   router.get('/:id/orders', (req, res) => {
@@ -22,14 +21,12 @@ module.exports = (knex) => {
         }
         res.render('admins', {
           orderObj: orderObj
-        })
-      })
-  })
-
-
+        });
+      });
+  });
 
   router.post('/', (req, res) => {
-    console.log("IN THE POST")
+    console.log('IN THE POST');
     knex('order_details')
       .select('*')
       .innerJoin('users', 'users.id', 'order_details.user_id')
@@ -40,21 +37,12 @@ module.exports = (knex) => {
         picked_up : 1
       })
       .catch((err) => {
-        console.log(err); throw err
+        console.log(err); throw err;
       })
       .finally(() => {
-        console.log('in the update')
-      })
-
-
-  })
-
-
-
-
-
-
-
+        console.log('in the update');
+      });
+  });
 
   return router;
-}
+};

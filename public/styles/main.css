@@ -102,8 +102,8 @@ body {
 }
 
 #main-container {
-  margin-left: 12rem;
-  margin-right: 12rem;
+  margin-left: 25rem;
+  margin-right: 25rem;
   background-color: #A8937C;
 }
 #main-container #submit-button {
@@ -198,27 +198,6 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
-}
-.jumbotron.background-style {
-  background-color: #E2D2C2;
-}
-.jumbotron.background-style .table.table-hover {
-  border-style: hidden;
-}
-.jumbotron.background-style .table.table-hover .table-head {
-  background-color: #4b0101;
-}
-.jumbotron.background-style .table.table-hover .table-head .text-head {
-  color: #ffffff;
-}
-.jumbotron.background-style .table.table-hover .table-data {
-  border-style: hidden;
-}
-.jumbotron.background-style .table.table-hover .table-data #hide-data {
-  border-style: hidden;
-}
-.jumbotron.background-style .table.table-hover .table-data #hide-data .delete-button {
-  background-color: #4b0101;
 }
 
 /*# sourceMappingURL=main.css.map */

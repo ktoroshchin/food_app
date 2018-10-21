@@ -1,61 +1,38 @@
 <%- include('partials/header.ejs') %>
-
-
-
-<div class="jumbotron background-style">
 <% for(let restaurant in orderObj) { %>
-  <% restaurantAddress = orderObj[restaurant][0].address%>
+<% restaurantAddress = orderObj[restaurant][0].address%>
 <% } %>
 
-<h1> Restaurant: <%=restaurantAddress%>   </h1>
+<div id="main-container" class="admin-main">
+  <div id="admin-container" class="container">
 
-<table class="table table-hover">
-  <thead class="table-head">
-    <tr>
-      <th class="text-head" scope="col">userid</th>
-      <th class="text-head" scope="col">customer phone number</th>
-      <th class="text-head" scope="col">order item</th>
-      <th class="text-head" scope="col">quantity</th>
-    </tr>
-  </thead>
-  <tbody class="table-data" class="ordercontainer">
+    <div class="row">
+      <div id="address">
+        <a id="address-text">
+          <%=restaurantAddress%></a>
+      </div>
+    </div>
 
-    <% for(let index in orderObj) { %>
+    <div class="row" id="admin-header">
+      <div class="col-3">UserID</div>
+      <div class="col-3">User Phone Number</div>
+      <div class="col-3">Order</div>
+      <div class="col-3">Quantity</div>
+    </div>
 
-    <tr id="hide-data" class="pop">
-
-      <td id="hide-data" class="user"><%=orderObj[index][0].user_id%></td>
-      <td id="hide-data"> <%=orderObj[index][0].phone_number%>
-        <button class="pickedUp" class="btn btn-danger delete-button">
-         Picked Up
-       </button>
-      </td>
+    <% for(let i = 0; i < userOrder.length; i++) { %>
+    <!-- make these 2 into divs -->
+    <%=orderObj[index][0].user_id%>
+    <%=orderObj[index][0].phone_number%>
+    <!-- make this a hover to see full order "hover to see order" -->
     <% orderObj[index].forEach(function(item) { %>
-      <td id="hide-data"> <%= item.item_name %> </td>
-      <td id="hide-data"> <%= item.quantity %> </td>
-
-    </tr>
-
-      <td id="hide-data" ></td>
-      <td id="hide-data" ></td>
+    <%= item.item_name %>
+    <%= item.quantity %>
     <% }) %>
-  <% } %>
 
-  </tbody>
-</table>
+    <% } %>
+
+
+  </div>
 </div>
-
-
 <%- include('partials/footer.ejs') %>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('.pop').click(function() {
-      $(this).css('background-color', 'purple')
-      const data_id = $(this).find('.user').text();
-      console.log( $(this).find('.user').text())
-      $.post('/admins', {data_id : data_id})
-    })
-  })
-
-</script>
