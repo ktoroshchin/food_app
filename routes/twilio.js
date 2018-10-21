@@ -50,33 +50,57 @@ module.exports = (knex) => {
   });
 
 
-  router.post('/sms', function (req, res) {
+ router.post('/sms', function (req, res) {
     var twilio = require('twilio');
     var twiml = new MessagingResponse();
 
-    //instant message back to restaurant
-    twiml.message(`Message received: ${req._startTime}\nMessage (ETA): ${req.body.Body}`);
+
 
     //instant text message
     const confirmMessage = `Your order has been confirmed! Estimated time til pick up: ${req.body.Body}`;
 
-    client.messages.create({
-      to: userPhone, // Text this number
-      from: twilioPhone, // From a valid Twilio number
-      body: confirmMessage
-    },
-    function (err, data) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(data);
-      }
-    });
 
-    res.writeHead(200, {
-      'Content-Type': 'text/xml'
-    });
-    res.end(twiml.toString());
+    knex('users')
+      .select('id')
+      .where({
+        'phone_number': userPhone
+      })
+      .then((id) => {
+        knex('texts')
+          .where({
+            'user_id': id[0]
+          })
+          .update({
+            restaurant_text: req.body.Body,
+            time_sent: req._startTime
+          })
+          .catch((err) => {
+            throw err;
+          })
+          .finally(() => {
+
+            //message back to restaurant
+            twiml.message(`Message received: ${req._startTime}\nMessage (ETA): ${req.body.Body}`);
+
+            client.messages.create({
+              to: userPhone, // Text this number
+              from: twilioPhone, // From a valid Twilio number
+              body: confirmMessage
+            },
+            function (err, data) {
+              if (err) {
+                console.log(err);
+              } else {
+                console.log(data);
+              }
+            });
+
+            res.writeHead(200, {
+              'Content-Type': 'text/xml'
+            });
+            res.end(twiml.toString());
+          });
+      });
   });
 
   return router;
