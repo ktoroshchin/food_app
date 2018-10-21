@@ -12,16 +12,14 @@ exports.seed = function(knex, Promise) {
             user_id: 1,
             restaurant_id: 1,
             user_order : faker.lorem.lines(),
-            restaurant_text : "" + Math.round(faker.random.number()/100),
-            time_sent : faker.date.recent()
+
           }),
 
           knex('texts').insert({
             user_id: 2,
             restaurant_id: 1,
             user_order : faker.lorem.lines(),
-            restaurant_text : "" + Math.round(faker.random.number()/100),
-            time_sent : faker.date.recent()
+
           }),
 
 
