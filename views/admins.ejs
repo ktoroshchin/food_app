@@ -21,13 +21,12 @@
       <div class="col-2"><a class="admin-header-tags">Status</a></div>
     </div>
 
-
     <% for(let index in orderObj) { %>
     <div class="row row-admin pop">
       <div class="col-3 user-id-div">
         <a class="user-id user">
           <%=orderObj[index][0].user_id%> </a>
-      </div>
+          <%= orderObj[index][0]["phone_number"] %>
       <div class="col-3 admin-drop dropdown">
         <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
@@ -43,7 +42,7 @@
       </div>
       <div class="col-4 admin-number">
         <a class="number">
-          <%=orderObj[index][0].phone_number%></a>
+          <%= orderObj[index][0]["phone_number"] %></a>
       </div>
       <div class="col-2 admin-status-button">
         <button class="pickedUp btn btn-danger delete-button">
@@ -51,7 +50,6 @@
         </button>
       </div>
     </div>
-
     <% } %>
   </div>
 

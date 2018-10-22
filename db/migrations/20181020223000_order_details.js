@@ -1,13 +1,13 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.table('order_details', table => {
+  return knex.schema.table("order_details", table => {
     table
-      .integer('picked_up')
-  })
+      .integer("picked_up");
+  });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.table('order_details', table => {
-    table.dropColumn('picked_up')
-  })
+  return knex.schema.table("order_details", table => {
+    table.dropColumn("picked_up");
+  });
 };

@@ -1,8 +1,8 @@
-'use strict';
-const moment = require('moment');
-const express = require('express');
+"use strict";
+const moment = require("moment");
+const express = require("express");
 const router = express.Router();
-const client = require('twilio')(
+const client = require("twilio")(
   process.env.TWILIO_ACCOUNT_SID,
   process.env.TWILIO_AUTH_TOKEN
 );
@@ -10,23 +10,23 @@ const client = require('twilio')(
 module.exports = (knex) => {
 
   //twilio example
-  const MessagingResponse = require('twilio').twiml.MessagingResponse;
+  const MessagingResponse = require("twilio").twiml.MessagingResponse;
 
   //twilio example
 
   let userPhone;
-  let restaurantPhone = '+15144244664';
-  const twilioPhone = '+14509991704';
+  let restaurantPhone = "+15144244664";
+  const twilioPhone = "+14509991704";
   // global? available to get & post?
 
 
-  router.get('/', function (req, res) {
+  router.get("/", function (req, res) {
 
-    knex('texts')
-      .select('*')
-      .innerJoin('users', 'users.id', 'texts.user_id')
+    knex("texts")
+      .select("*")
+      .innerJoin("users", "users.id", "texts.user_id")
       .where({
-        shortURL: req.cookies['shortURL']
+        shortURL: req.cookies["shortURL"]
       })
       .then((text_info) => {
         userPhone = text_info[0].phone_number; 
@@ -54,11 +54,11 @@ module.exports = (knex) => {
   });
 
 
-  router.post('/sms', function (req, res) {
-    var twilio = require('twilio');
+  router.post("/sms", function (req, res) {
+    var twilio = require("twilio");
     var twiml = new MessagingResponse();
     const prepTime = req.body.Body;
-    const readyTime = moment().add(prepTime, 'minutes').calendar();  
+    const readyTime = moment().add(prepTime, "minutes").calendar();  
 
     //instant text message
     const confirmMessage = `Your order has been confirmed! Food Should Be Ready ${readyTime}`;
@@ -100,7 +100,7 @@ module.exports = (knex) => {
     });
 
     res.writeHead(200, {
-      'Content-Type': 'text/xml'
+      "Content-Type": "text/xml"
     });
 
     res.end(twiml.toString());
