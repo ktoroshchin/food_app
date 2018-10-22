@@ -12,7 +12,7 @@ $dryred: #4b0101;
 
 
 #main-form {
-background-color: $lightbrown;
+  background-color: $lightbrown;
 }
 
 #main-container {
@@ -20,9 +20,10 @@ background-color: $lightbrown;
   margin-right: 12rem;
   background-color: $brown;
 
-#submit-button {
-border-radius: 10px;
-}
+  #submit-button {
+    border-radius: 10px;
+  }
+
   #burger-container {
     display: flex;
     flex-direction: column;
@@ -33,7 +34,7 @@ border-radius: 10px;
     #burger-title {
       text-align: center;
       font-size: 2rem;
-      font-family: 'special elite', courier, serif; 
+      font-family: 'special elite', courier, serif;
       font-weight: 700;
       color: white;
       border-radius: 5px;
@@ -55,10 +56,10 @@ border-radius: 10px;
         margin-bottom: 15px;
         background-color: $mustard;
         border: 0.5px solid $black;
-        
+
         .title {
           height: 2.75rem;
-          font-family: 'special elite', courier, serif; 
+          font-family: 'special elite', courier, serif;
           font-size: 1.5rem;
         }
 
@@ -67,6 +68,7 @@ border-radius: 10px;
           justify-content: center;
           height: 12rem;
           margin-bottom: 10px;
+
           .card-img {
             max-width: 200px;
             min-width: 170px;
@@ -75,12 +77,13 @@ border-radius: 10px;
             border-radius: 20px;
           }
         }
+
         .card-text {
-          font-family: 'special elite', courier, serif; 
+          font-family: 'special elite', courier, serif;
           font-size: 1.5rem;
         }
       }
-      
+
       .dropdown {
         margin-left: auto;
         margin-right: auto;
@@ -94,25 +97,28 @@ border-radius: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    font-family: 'special elite', courier, serif; 
+    font-family: 'special elite', courier, serif;
     font-size: 1rem;
+
     #submit-text-area {
       width: 20rem;
-      margin-left: auto; 
-      margin-right: auto; 
-      margin-top: 1rem; 
-      margin-bottom: 0.5rem; 
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
     }
+
     #submit-button {
       width: 20rem;
-      margin-left: auto; 
+      margin-left: auto;
       margin-right: auto;
-      margin-top: 0.5rem; 
-      margin-bottom: 1rem; 
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
     }
+
     ::-webkit-input-placeholder {
       text-align: center;
-   }
+    }
   }
 }
 

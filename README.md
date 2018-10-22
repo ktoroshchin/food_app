@@ -23,6 +23,10 @@
 7. Run the server: `npm run local`
 8. Visit `http://localhost:8080/`
 
+## Demos of the app
+
+![]()
+
 ## Dependencies
 
 - Node 5.10.x or above
@@ -40,6 +44,7 @@
 - Once confirmed, the user order is sent - via text message - to The Restaurant (staff member)
 - The Restaurant replies to the order with an approximate wait time, which is directly sent to the user; the Restaurant receives confirmation text that
 - Text messages sent using API: twilio
+
 
 ## User Stories
 
@@ -70,3 +75,8 @@ Because I can best organize my staff
 Given that I can check all orders made to me via the admins page
 When an order has been picked up
 Then I can confirm it with a click of a button and remove it from the page
+
+## Note to users
+
+The API twilio necessitates the use of a server, Ngrok was used for the purpose of our presentation:
+https://ngrok.com
