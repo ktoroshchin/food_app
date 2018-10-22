@@ -21,7 +21,7 @@
       <div class="col-2"><a class="admin-header-tags">Status</a></div>
     </div>
 
-    
+
     <% for(let index in orderObj) { %>
     <div class="row row-admin pop">
       <div class="col-3 user-id-div">
@@ -56,24 +56,16 @@
   </div>
 
   <script type="text/javascript">
-  // doesnt work but its the better method
-    $(document).ready(function() {
-      $('.pickedUp').click(function() {
+    $(document).ready(function () {
+      $('.pickedUp').click(function () {
         $(this).parent('row-admin').css('background-color', 'purple')
         const data_id = $(this).parents('.row-admin').children('.user-id-div').children('.user').text()
-        console.log( $(this).parents('.row-admin').children('.user-id-div').children('.user').text());
-        $.post('/admins', {data_id : data_id})
+        console.log($(this).parents('.row-admin').children('.user-id-div').children('.user').text());
+        $.post('/admins', {
+          data_id: data_id
+        })
       })
     })
 
-  // works but on everything 
-  //   $(document).ready(function() {
-  //   $('.pop').click(function() {
-  //     $(this).css('background-color', 'purple')
-  //     const data_id = $(this).find('.user').text();
-  //     console.log( $(this).find('.user').text())
-  //     $.post('/admins', {data_id : data_id})
-  //   })
-  // })
   </script>
   <%- include('partials/footer.ejs') %>
