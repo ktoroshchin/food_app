@@ -25,21 +25,21 @@
 
 ## Demos of the app
 
-![Phone main](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main1.jpg)
+![Phone main](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main1.jpg | width=400)
 
-![main computer page opened](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main1.png)
+![main computer page opened](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main1.png | width=400)
 
-![Phone collapsed](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main.jpg)
+![Phone collapsed](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main.jpg | width=400)
 
-![main computer page collapsed](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main.png)
+![main computer page collapsed](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main.png | width=400)
 
-![Phone Cart](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_cart.jpg)
+![Phone Cart](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_cart.jpg | width=400)
 
-![Cart page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_cart.png)
+![Cart page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_cart.png | width=400)
 
-![order cart computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/order_confirmed.png)
+![order cart computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/order_confirmed.png | width=400)
 
-![Admin page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/admin_page.png)
+![Admin page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/admin_page.png | width=400)
 
 
 
