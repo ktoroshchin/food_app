@@ -25,7 +25,29 @@
 
 ## Demos of the app
 
-![]()
+![Phone main](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main1.jpg)
+
+![main computer page opened](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main1.png)
+
+![Phone collapsed](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main.jpg)
+
+![main computer page collapsed](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main.png)
+
+![Phone Cart](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_cart.jpg)
+
+![Cart page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_cart.png)
+
+![order cart computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/order_confirmed.png)
+
+![Admin page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/admin_page.png)
+
+
+
+
+
+
+
+
 
 ## Dependencies
 
