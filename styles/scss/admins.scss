@@ -12,9 +12,7 @@ $orange: #FF9505;
   border-radius: 20px;
 
   #admin-container {
-    @media screen and (max-width: 1200px) {
-      font-size: 80%;
-    }
+
     .address-admin {
       display: flex;
       align-items: center;
@@ -33,9 +31,6 @@ $orange: #FF9505;
     }
 
     #admin-header {
-      @media screen and (max-width: 1200px) {
-        font-size: 80%;
-      }
       border: 4px solid black;
       border-radius: 10px;
       font-weight: 900;
@@ -48,9 +43,6 @@ $orange: #FF9505;
     }
 
     .row-admin {
-      @media screen and (max-width: 1200px) {
-        font-size: 80%;
-      }
       font-family: 'special elite', courier, serif;
       font-size: 1.25rem;
       border: 0.5px solid black;
