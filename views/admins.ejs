@@ -57,14 +57,14 @@
 
   <script type="text/javascript">
   // doesnt work but its the better method
-    // $(document).ready(function() {
-    //   $('.pickedUp').click(function() {
-    //     $(this).parent('row-admin').css('background-color', 'purple')
-    //     const data_id = $(this).parent('.row-admin').children('.user').text();
-    //     console.log( $(this).parent('.row-admin').children('.user'));
-    //     $.post('/admins', {data_id : data_id})
-    //   })
-    // })
+    $(document).ready(function() {
+      $('.pickedUp').click(function() {
+        $(this).parent('row-admin').css('background-color', 'purple')
+        const data_id = $(this).parents('.row-admin').children('.user-id-div').children('.user').text()
+        console.log( $(this).parents('.row-admin').children('.user-id-div').children('.user').text());
+        $.post('/admins', {data_id : data_id})
+      })
+    })
 
   // works but on everything 
   //   $(document).ready(function() {
