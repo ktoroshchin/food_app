@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
       table.increments();
       table.integer('user_id');
       table.integer('restaurant_id');
-      table.string('user_order');
+      table.string('user_order', 1000);
       table.string('restaurant_text');
       table.string('time_sent');
 

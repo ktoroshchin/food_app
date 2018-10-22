@@ -12,7 +12,6 @@ exports.seed = function(knex, Promise) {
             user_id: 1,
             restaurant_id: 1,
             user_order : faker.lorem.lines(),
-
           }),
 
           knex('texts').insert({
@@ -21,7 +20,6 @@ exports.seed = function(knex, Promise) {
             user_order : faker.lorem.lines(),
 
           }),
-
 
         ]);
       })
