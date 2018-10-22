@@ -25,15 +25,15 @@
 
 ## Demos of the app
 
-![Phone main](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main1.jpg | width=400)
+<img src="https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main1.jpg" alt="Phone main" width="500" >
 
 ![main computer page opened](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main1.png | width=400)
 
-![Phone collapsed](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main.jpg | width=400)
+<img src="https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main.jpg" alt="Phone collapsed" width="500" >
 
 ![main computer page collapsed](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main.png | width=400)
 
-![Phone Cart](https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_cart.jpg | width=400)
+<img src="https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_cart.jpg" alt="Phone main" width="500">
 
 ![Cart page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_cart.png | width=400)
 
