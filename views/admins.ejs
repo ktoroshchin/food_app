@@ -9,6 +9,7 @@
     <div class="row address-admin">
       <div id="address">
         <a id="address-text">
+          Restaurant Address: &nbsp;&nbsp;
           <%=restaurantAddress%></a>
       </div>
     </div>
@@ -54,6 +55,7 @@
   </div>
 
   <script type="text/javascript">
+  // doesnt work but its the better method
     // $(document).ready(function() {
     //   $('.pickedUp').click(function() {
     //     $(this).parent('row-admin').css('background-color', 'purple')
@@ -63,13 +65,14 @@
     //   })
     // })
 
-    $(document).ready(function() {
-    $('.pop').click(function() {
-      $(this).css('background-color', 'purple')
-      const data_id = $(this).find('.user').text();
-      console.log( $(this).find('.user').text())
-      $.post('/admins', {data_id : data_id})
-    })
-  })
+  // works but on everything 
+  //   $(document).ready(function() {
+  //   $('.pop').click(function() {
+  //     $(this).css('background-color', 'purple')
+  //     const data_id = $(this).find('.user').text();
+  //     console.log( $(this).find('.user').text())
+  //     $.post('/admins', {data_id : data_id})
+  //   })
+  // })
   </script>
   <%- include('partials/footer.ejs') %>
