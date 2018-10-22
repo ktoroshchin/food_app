@@ -27,8 +27,8 @@
       <td id="hide-data" class="user"><%=orderObj[index][0].user_id%></td>
       <td id="hide-data"> <%=orderObj[index][0].phone_number%>
         <button class="pickedUp" class="btn btn-danger delete-button">
-         Picked Up
-       </button>
+            Picked Up
+          </button>
       </td>
     <% orderObj[index].forEach(function(item) { %>
       <td id="hide-data"> <%= item.item_name %> </td>
@@ -57,5 +57,4 @@
       $.post('/admins', {data_id : data_id})
     })
   })
-
 </script>

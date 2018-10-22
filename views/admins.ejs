@@ -6,33 +6,70 @@
 <div id="main-container" class="admin-main">
   <div id="admin-container" class="container">
 
-    <div class="row">
+    <div class="row address-admin">
       <div id="address">
         <a id="address-text">
           <%=restaurantAddress%></a>
       </div>
     </div>
 
-    <div class="row" id="admin-header">
-      <div class="col-3">UserID</div>
-      <div class="col-3">User Phone Number</div>
-      <div class="col-3">Order</div>
-      <div class="col-3">Quantity</div>
+    <div class="row row-admin" id="admin-header">
+      <div class="col-3"><a class="admin-header-tags">UserID</a></div>
+      <div class="col-3"><a class="admin-header-tags">User Order</a></div>
+      <div class="col-4"><a class="admin-header-tags">User Phone Number</a></div>
+      <div class="col-2"><a class="admin-header-tags">Status</a></div>
     </div>
 
-    <% for(let i = 0; i < userOrder.length; i++) { %>
-    <!-- make these 2 into divs -->
-    <%=orderObj[index][0].user_id%>
-    <%=orderObj[index][0].phone_number%>
-    <!-- make this a hover to see full order "hover to see order" -->
-    <% orderObj[index].forEach(function(item) { %>
-    <%= item.item_name %>
-    <%= item.quantity %>
-    <% }) %>
+    <% for(let index in orderObj) { %>
+    <div class="row row-admin pop">
+      <div class="col-3 user-id-div">
+        <a class="user-id user">
+          <%=orderObj[index][0].user_id%> </a>
+      </div>
+      <div class="col-3 admin-drop dropdown">
+        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Order
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <% orderObj[index].forEach(function(item) { %>
+          <a class="dropdown-item"> 
+            <%= item.item_name %> x
+            <%= item.quantity %> </a>
+          <% }) %>
+        </div>
+      </div>
+      <div class="col-4 admin-number">
+        <a class="number">
+          <%=orderObj[index][0].phone_number%></a>
+      </div>
+      <div class="col-2 admin-status-button">
+        <button class="pickedUp btn btn-danger delete-button">
+          Picked Up
+        </button>
+      </div>
+    </div>
 
     <% } %>
-
-
   </div>
-</div>
-<%- include('partials/footer.ejs') %>
+
+  <script type="text/javascript">
+    // $(document).ready(function() {
+    //   $('.pickedUp').click(function() {
+    //     $(this).parent('row-admin').css('background-color', 'purple')
+    //     const data_id = $(this).parent('.row-admin').children('.user').text();
+    //     console.log( $(this).parent('.row-admin').children('.user'));
+    //     $.post('/admins', {data_id : data_id})
+    //   })
+    // })
+
+    $(document).ready(function() {
+    $('.pop').click(function() {
+      $(this).css('background-color', 'purple')
+      const data_id = $(this).find('.user').text();
+      console.log( $(this).find('.user').text())
+      $.post('/admins', {data_id : data_id})
+    })
+  })
+  </script>
+  <%- include('partials/footer.ejs') %>

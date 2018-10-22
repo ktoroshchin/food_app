@@ -102,8 +102,8 @@ body {
 }
 
 #main-container {
-  margin-left: 25rem;
-  margin-right: 25rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
   background-color: #A8937C;
 }
 #main-container #submit-button {
@@ -198,6 +198,50 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+}
+.admin-main {
+  border: 5px solid white;
+  border-radius: 20px;
+}
+.admin-main #admin-container #admin-header {
+  border: 4px solid black;
+  border-radius: 10px;
+  font-weight: 900;
+}
+.admin-main #admin-container #admin-header .admin-header-tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.admin-main #admin-container .row-admin {
+  font-family: "special elite", courier, serif;
+  font-size: 1.25rem;
+  border: 0.5px solid black;
+  border-radius: 10px;
+  height: 3rem;
+}
+.admin-main #admin-container .row-admin .user-id-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.admin-main #admin-container .row-admin .user-id-div .user-id {
+  font-weight: 900;
+}
+.admin-main #admin-container .row-admin .admin-drop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.admin-main #admin-container .row-admin .admin-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.admin-main #admin-container .row-admin .admin-status-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=main.css.map */
