@@ -61,7 +61,8 @@ module.exports = (knex) => {
           userOrder.push({
             food_id: foodID[i], // sent as string -> turn to number
             user_id: id[0],
-            quantity: clientItems[foodID[i]]
+            quantity: clientItems[foodID[i]],
+            picked_up : 0
           });
         }
         knex('order_details')
