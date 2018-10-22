@@ -19,10 +19,10 @@ module.exports = (knex) => {
           orderObj[order.shortURL] = orderObj[order.shortURL] || [];
           orderObj[order.shortURL].push(order);
         }
-        // res.render("admins", {
-        //   orderObj: orderObj
-        // });
-        res.json(orderObj);
+        res.render("admins", {
+          orderObj: orderObj
+        });
+        // res.json(orderObj);
       });
   });
 

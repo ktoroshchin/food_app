@@ -26,7 +26,7 @@
       <div class="col-3 user-id-div">
         <a class="user-id user">
           <%=orderObj[index][0].user_id%> </a>
-          <%= orderObj[index][0]["phone_number"] %>
+       </div>          
       <div class="col-3 admin-drop dropdown">
         <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
@@ -40,10 +40,12 @@
           <% }) %>
         </div>
       </div>
+
       <div class="col-4 admin-number">
         <a class="number">
           <%= orderObj[index][0]["phone_number"] %></a>
       </div>
+
       <div class="col-2 admin-status-button">
         <button class="pickedUp btn btn-danger delete-button">
           Picked Up

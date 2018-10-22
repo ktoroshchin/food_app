@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
         return Promise.all([
           // Inserts seed entries
           knex("restaurants").insert({
-            phone_number: faker.phone.phoneNumber(),
+            restaurant_phone_number: faker.phone.phoneNumber(),
             address: faker.address.streetAddress()
           }),
         ]);
