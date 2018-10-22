@@ -203,11 +203,6 @@ body {
   border: 5px solid white;
   border-radius: 20px;
 }
-@media screen and (max-width: 1200px) {
-  .admin-main #admin-container {
-    font-size: 80%;
-  }
-}
 .admin-main #admin-container .address-admin {
   display: flex;
   align-items: center;
@@ -223,11 +218,6 @@ body {
   border-radius: 10px;
   font-weight: 900;
 }
-@media screen and (max-width: 1200px) {
-  .admin-main #admin-container #admin-header {
-    font-size: 80%;
-  }
-}
 .admin-main #admin-container #admin-header .admin-header-tags {
   display: flex;
   align-items: center;
@@ -239,11 +229,6 @@ body {
   border: 0.5px solid black;
   border-radius: 10px;
   height: 3rem;
-}
-@media screen and (max-width: 1200px) {
-  .admin-main #admin-container .row-admin {
-    font-size: 80%;
-  }
 }
 .admin-main #admin-container .row-admin .user-id-div {
   display: flex;
