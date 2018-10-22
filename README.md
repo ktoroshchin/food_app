@@ -27,19 +27,19 @@
 
 <img src="https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main1.jpg" alt="Phone main" width="500" >
 
-![main computer page opened](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main1.png | width=400)
+![main computer page opened](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main1.png)
 
 <img src="https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main.jpg" alt="Phone collapsed" width="500" >
 
-![main computer page collapsed](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main.png | width=400)
+![main computer page collapsed](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_main.png)
 
 <img src="https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_cart.jpg" alt="Phone main" width="500">
 
-![Cart page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_cart.png | width=400)
+![Cart page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/computer_cart.png)
 
-![order cart computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/order_confirmed.png | width=400)
+![order cart computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/order_confirmed.png)
 
-![Admin page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/admin_page.png | width=400)
+![Admin page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/admin_page.png)
 
 
 
