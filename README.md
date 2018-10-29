@@ -1,4 +1,3 @@
-# Node Skeleton
 
 ## Project Setup
 
@@ -23,7 +22,7 @@
 7. Run the server: `npm run local`
 8. Visit `http://localhost:8080/`
 
-## Demos of the app
+# Demos of the app
 
 <img src="https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main1.jpg" alt="Phone main" width="350" >
 
@@ -40,13 +39,6 @@
 ![order cart computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/order_confirmed.png)
 
 ![Admin page computer](https://github.com/MikaelAbehsera/food_app/blob/master/media/admin_page.png)
-
-
-
-
-
-
-
 
 
 ## Dependencies
