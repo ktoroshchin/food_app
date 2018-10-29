@@ -42,9 +42,18 @@
 
 
 ## Dependencies
-
-- Node 5.10.x or above
-- NPM 3.8.x or above
+- body-parser
+- cookie-parser
+- dotenv
+- ejs
+- express
+- knex
+- knex-logger
+- moment
+- morgan
+- node-sass-middleware
+- pg
+- twilio
 
 ## Features
 
