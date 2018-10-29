@@ -73,34 +73,35 @@
 ## User Stories
 
 As a user
-I want to know when I can pick up my order
-Because I am busy and need to organize my schedule
-Because I don't want to waste my time waiting for my order
-Because I don't want to miss my order pickup and have my food go cold
+I want to know when I can pick up my order,
+because I am busy,
+because I don't want to waste my time ordering my food in person and waiting for my order,
+I would like to walk in and out with my order right away,
+I would also like to get a reminder when I should pick up my order.
 
-Given that I made an order to pick up on the way to meet my friend
-When I receive a text confirming the time to pick up
-Then I can best decide when to leave the house
+Given that I made an order to pick up,
+I receive a text confirming the local time to pick up, 
+Using an Iphone allows me to setup a quick reminder just from the text I have recived,
+and with that I can best decide when to leave the house.
 
 
 As a user
-I want to make sure I made the proper order
-Because sometimes I forget things
+I want to make sure I made the proper order,
+sometimes I forget some items that I would like,
 
-Given that I made an order and submitted it
-When I get to the orders page I can double check my cart before confirming it
-Then I know I ordered everything I wanted to
+Given that I made an order and submitted it,
+When I get to the orders page I can double check my cart before confirming it,
+Then I know I have not missed anything.
 
 
-As a Restaurant owner
-I want to check to check the orders that will be picked up
-Because I can best organize my staff
+As a Restaurant owner,
+I want to check the orders that have been ordered,
 
-Given that I can check all orders made to me via the admins page
-When an order has been picked up
-Then I can confirm it with a click of a button and remove it from the page
+Given that I can check all orders made to me via the admins page,
+When an order has been picked up,
+I can confirm it with a click of a button and remove it from the page.
 
 ## Note to users
 
-The API twilio necessitates the use of a server, Ngrok was used for the purpose of our presentation:
+The twilio API necessitates the use of a server, Ngrok was used for the purpose of our presentation:
 https://ngrok.com
