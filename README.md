@@ -4,7 +4,7 @@
 2.Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
 3. Update the .env file with your correct local information
 4. Install dependencies: `npm i`
-5. Fix to binaries for sass: `npm rebuild node-sass`
+5. Fix to binaries for sass: `npm rebuild node-sass --force`
 6. Run migrations: `npm run knex migrate:latest`
   - Check the migrations folder to see what gets created in the DB
 7. Run the seed: `npm run knex seed:run`
@@ -28,7 +28,7 @@
 
 #### Keep scrolling after the demo pictures
 
-# Demos of the app 
+# Demos of the app
 
 <img src="https://github.com/MikaelAbehsera/food_app/blob/master/media/phone_main1.jpg" alt="Phone main" width="350" >
 
@@ -50,7 +50,7 @@
 
 - Database holds every item which The Restaurant wishes to sell/present to the user
 - This includes the item's name, price, a picture, and a "category" - to allow for better organization in the menu section
-- The Restaurant's items are displayed on the root page; item name, price, and a picture, all sorted by category which are collapsable for user's convenience 
+- The Restaurant's items are displayed on the root page; item name, price, and a picture, all sorted by category which are collapsable for user's convenience
 - The Restaurant's menu index is available on mobile as well - with altered graphics to best fit size
 - No login required
 - After making their choices, the user enters a phone number for contact and is directed to the order page
@@ -70,7 +70,7 @@ I would like to walk in and out with my order right away,
 I would also like to get a reminder when I should pick up my order.
 
 Given that I made an order to pick up,
-I receive a text confirming the local time to pick up, 
+I receive a text confirming the local time to pick up,
 Using an Iphone allows me to setup a quick reminder just from the text I have recived,
 and with that I can best decide when to leave the house.
 

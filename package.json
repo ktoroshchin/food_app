@@ -27,7 +27,6 @@
   },
   "devDependencies": {
     "faker": "^4.1.0",
-    "nodemon": "^1.9.2",
-    "sqlite3": "^3.1.4"
+    "nodemon": "^1.9.2"
   }
 }
